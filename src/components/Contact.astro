@@ -1,5 +1,5 @@
 ---
-import { Send } from '@lucide/astro';
+import { Send, Github, Linkedin, Mail } from '@lucide/astro';
 ---
 
 <section id="contact" class="py-20 md:py-28">
@@ -18,19 +18,19 @@ import { Send } from '@lucide/astro';
           I am available to explore a position for senior-level engineering roles and high-impact architecture consulting.
         </p>
 
-        <div class="mt-8 space-y-3 text-sm text-text-muted">
-          <div class="flex items-center gap-2">
-            <span class="h-1 w-1 rounded-full bg-accent-green"></span>
-            Available for full-time roles
-          </div>
-          <div class="flex items-center gap-2">
-            <span class="h-1 w-1 rounded-full bg-accent-green"></span>
-            Open to contract work
-          </div>
-          <div class="flex items-center gap-2">
-            <span class="h-1 w-1 rounded-full bg-accent-green"></span>
-            Remote-first preferred
-          </div>
+        <div class="mt-8 flex flex-wrap items-center gap-6 text-sm text-text-muted">
+          <a href="#" class="inline-flex items-center gap-2 transition-colors hover:text-text-primary">
+            <Github class="h-4 w-4" />
+            GitHub
+          </a>
+          <a href="#" class="inline-flex items-center gap-2 transition-colors hover:text-text-primary">
+            <Linkedin class="h-4 w-4" />
+            LinkedIn
+          </a>
+          <a href="mailto:hello@example.com" class="inline-flex items-center gap-2 transition-colors hover:text-text-primary">
+            <Mail class="h-4 w-4" />
+            Email
+          </a>
         </div>
       </div>
 
