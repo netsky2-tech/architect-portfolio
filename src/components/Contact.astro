@@ -1,0 +1,78 @@
+---
+import { Send } from '@lucide/astro';
+---
+
+<section id="contact" class="py-20 md:py-28">
+  <div class="mx-auto max-w-7xl px-6">
+    <div class="grid gap-12 md:grid-cols-2">
+      <!-- Left -->
+      <div data-reveal="left">
+        <div class="mb-3 inline-flex items-center gap-2 rounded-full border border-dark-border bg-dark-card px-4 py-1.5">
+          <span class="pulse-dot h-1.5 w-1.5 rounded-full bg-accent-blue"></span>
+          <span class="text-xs font-medium tracking-wider text-text-secondary uppercase">Get in Touch</span>
+        </div>
+        <h2 class="mb-4 text-3xl font-bold tracking-tight md:text-4xl">
+          Ready to architect your next system?
+        </h2>
+        <p class="max-w-md text-base leading-relaxed text-text-secondary">
+          I am available to explore a position for senior-level engineering roles and high-impact architecture consulting.
+        </p>
+
+        <div class="mt-8 space-y-3 text-sm text-text-muted">
+          <div class="flex items-center gap-2">
+            <span class="h-1 w-1 rounded-full bg-accent-green"></span>
+            Available for full-time roles
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="h-1 w-1 rounded-full bg-accent-green"></span>
+            Open to contract work
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="h-1 w-1 rounded-full bg-accent-green"></span>
+            Remote-first preferred
+          </div>
+        </div>
+      </div>
+
+      <!-- Right - Form -->
+      <div data-reveal="right" class="rounded-2xl border border-dark-border bg-dark-card p-6 md:p-8">
+        <form class="space-y-5">
+          <div>
+            <label for="name" class="mb-1.5 block text-xs font-medium tracking-wider text-text-muted uppercase">Full Name</label>
+            <input
+              type="text"
+              id="name"
+              placeholder="Tell me your name, or your company name"
+              class="w-full rounded-lg border border-dark-border bg-dark-bg px-4 py-3 text-sm text-text-primary placeholder-text-muted outline-none transition-colors focus:border-accent-blue"
+            />
+          </div>
+          <div>
+            <label for="email" class="mb-1.5 block text-xs font-medium tracking-wider text-text-muted uppercase">Email</label>
+            <input
+              type="email"
+              id="email"
+              placeholder="your@email.com"
+              class="w-full rounded-lg border border-dark-border bg-dark-bg px-4 py-3 text-sm text-text-primary placeholder-text-muted outline-none transition-colors focus:border-accent-blue"
+            />
+          </div>
+          <div>
+            <label for="message" class="mb-1.5 block text-xs font-medium tracking-wider text-text-muted uppercase">Message</label>
+            <textarea
+              id="message"
+              rows="4"
+              placeholder="Describe your project or role..."
+              class="w-full resize-none rounded-lg border border-dark-border bg-dark-bg px-4 py-3 text-sm text-text-primary placeholder-text-muted outline-none transition-colors focus:border-accent-blue"
+            ></textarea>
+          </div>
+          <button
+            type="submit"
+            class="btn-primary inline-flex w-full items-center justify-center gap-2 rounded-lg bg-accent-blue px-6 py-3 text-sm font-semibold text-white"
+          >
+            <Send class="h-4 w-4" />
+            Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,54 @@
+---
+import { Hexagon, Menu } from '@lucide/astro';
+---
+
+<nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 border-b border-dark-border bg-dark-bg/80 backdrop-blur-md transition-all duration-300">
+  <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+    <a href="/" class="flex items-center gap-2 text-lg font-bold tracking-tight text-text-primary">
+      <Hexagon class="h-6 w-6 text-accent-green" />
+      <span>THE ARCHITECT</span>
+    </a>
+
+    <div class="hidden items-center gap-8 md:flex">
+      <a href="#projects" class="text-sm text-text-secondary transition-colors hover:text-text-primary">Projects</a>
+      <a href="#stack" class="text-sm text-text-secondary transition-colors hover:text-text-primary">Tech Stack</a>
+      <a href="#philosophy" class="text-sm text-text-secondary transition-colors hover:text-text-primary">Philosophy</a>
+      <a href="#contact" class="btn-green rounded-lg bg-accent-green px-5 py-2 text-sm font-semibold text-dark-bg">
+        Hire Team
+      </a>
+    </div>
+
+    <button class="text-text-secondary md:hidden" id="mobile-menu-btn" aria-label="Toggle menu">
+      <Menu class="h-6 w-6" />
+    </button>
+  </div>
+
+  <div class="hidden border-t border-dark-border md:hidden" id="mobile-menu">
+    <div class="flex flex-col gap-4 px-6 py-4">
+      <a href="#projects" class="text-sm text-text-secondary transition-colors hover:text-text-primary">Projects</a>
+      <a href="#stack" class="text-sm text-text-secondary transition-colors hover:text-text-primary">Tech Stack</a>
+      <a href="#philosophy" class="text-sm text-text-secondary transition-colors hover:text-text-primary">Philosophy</a>
+      <a href="#contact" class="inline-block rounded-lg bg-accent-green px-5 py-2 text-center text-sm font-semibold text-dark-bg transition-opacity hover:opacity-90">
+        Hire Team
+      </a>
+    </div>
+  </div>
+</nav>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  const nav = document.getElementById('main-nav');
+
+  btn?.addEventListener('click', () => {
+    menu?.classList.toggle('hidden');
+  });
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) {
+      nav?.classList.add('nav-scrolled');
+    } else {
+      nav?.classList.remove('nav-scrolled');
+    }
+  }, { passive: true });
+</script>

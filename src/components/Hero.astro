@@ -1,0 +1,109 @@
+---
+import { ArrowRight, Layers } from '@lucide/astro';
+---
+
+<section class="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28">
+  <!-- Subtle gradient background -->
+  <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(59,130,246,0.08)_0%,_transparent_60%)]"></div>
+
+  <div class="relative mx-auto max-w-7xl px-6">
+    <!-- Badge -->
+    <div class="hero-enter hero-enter-1 mb-8 inline-flex items-center gap-2 rounded-full border border-dark-border bg-dark-card px-4 py-1.5">
+      <span class="pulse-dot h-1.5 w-1.5 rounded-full bg-accent-green"></span>
+      <span class="text-xs font-medium tracking-wider text-text-secondary uppercase">Trusted by Forward Thinkers</span>
+    </div>
+
+    <!-- Headline -->
+    <h1 class="hero-enter hero-enter-2 max-w-4xl text-4xl font-extrabold leading-tight tracking-tight md:text-6xl lg:text-7xl">
+      Architecting
+      <span class="text-accent-green"> Scalable Systems</span>
+      <span class="text-text-primary"> for Large-Scale Impact.</span>
+    </h1>
+
+    <!-- Subtitle -->
+    <p class="hero-enter hero-enter-3 mt-6 max-w-2xl text-lg leading-relaxed text-text-secondary md:text-xl">
+      Senior Software Engineer bridging the gap between high-performance .NET/Laravel backends and next-gen AI-driven enterprise solutions.
+    </p>
+
+    <!-- CTA Buttons -->
+    <div class="hero-enter hero-enter-4 mt-10 flex flex-wrap items-center gap-4">
+      <a href="#projects" class="btn-primary inline-flex items-center gap-2 rounded-lg bg-accent-blue px-6 py-3 text-sm font-semibold text-white">
+        View Full Portfolio
+        <ArrowRight class="h-4 w-4" />
+      </a>
+      <a href="#stack" class="btn-outline inline-flex items-center gap-2 rounded-lg border border-dark-border px-6 py-3 text-sm font-semibold text-text-secondary hover:border-text-muted hover:text-text-primary">
+        <Layers class="h-4 w-4" />
+        Tech Stack
+      </a>
+    </div>
+
+    <!-- Stats -->
+    <div id="stats-row" class="hero-enter hero-enter-5 mt-16 grid grid-cols-2 gap-6 border-t border-dark-border pt-10 md:grid-cols-4">
+      <div>
+        <div class="text-3xl font-bold text-accent-green md:text-4xl" data-count-to="7" data-count-suffix="+">0+</div>
+        <div class="mt-1 text-sm text-text-muted">Years Experience</div>
+      </div>
+      <div>
+        <div class="text-3xl font-bold text-text-primary md:text-4xl" data-count-to="30" data-count-suffix="+">0+</div>
+        <div class="mt-1 text-sm text-text-muted">Projects Delivered</div>
+      </div>
+      <div>
+        <div class="text-3xl font-bold text-text-primary md:text-4xl" data-count-to="99.9" data-count-suffix="%" data-count-decimals="1">0%</div>
+        <div class="mt-1 text-sm text-text-muted">Uptime Record</div>
+      </div>
+      <div>
+        <div class="text-3xl font-bold text-accent-blue md:text-4xl" data-count-to="1" data-count-prefix="#">0</div>
+        <div class="mt-1 text-sm text-text-muted">Client Satisfaction</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  function animateCount(el: HTMLElement) {
+    const target = parseFloat(el.dataset.countTo || '0');
+    const decimals = parseInt(el.dataset.countDecimals || '0');
+    const prefix = el.dataset.countPrefix || '';
+    const suffix = el.dataset.countSuffix || '';
+    const duration = 1800;
+    const start = performance.now();
+
+    function easeOutExpo(t: number): number {
+      return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+    }
+
+    function update(now: number) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = easeOutExpo(progress);
+      const current = eased * target;
+
+      el.textContent = prefix + current.toFixed(decimals) + suffix;
+
+      if (progress < 1) {
+        requestAnimationFrame(update);
+      }
+    }
+
+    requestAnimationFrame(update);
+  }
+
+  const statsRow = document.getElementById('stats-row');
+  if (statsRow) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const counters = statsRow.querySelectorAll<HTMLElement>('[data-count-to]');
+            counters.forEach((el, i) => {
+              setTimeout(() => animateCount(el), i * 120);
+            });
+            observer.unobserve(statsRow);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+    observer.observe(statsRow);
+  }
+</script>

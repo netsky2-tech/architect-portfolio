@@ -1,0 +1,117 @@
+---
+import { Server, ArrowUpRight, Building2 } from '@lucide/astro';
+---
+
+<section id="projects" class="py-20 md:py-28">
+  <div class="mx-auto max-w-7xl px-6">
+    <!-- Section Header -->
+    <div data-reveal class="mb-12 flex items-end justify-between">
+      <div>
+        <div class="mb-3 inline-flex items-center gap-2 rounded-full border border-dark-border bg-dark-card px-4 py-1.5">
+          <span class="pulse-dot h-1.5 w-1.5 rounded-full bg-accent-blue"></span>
+          <span class="text-xs font-medium tracking-wider text-text-secondary uppercase">Portfolio</span>
+        </div>
+        <h2 class="text-3xl font-bold tracking-tight md:text-4xl">Selected Architecture</h2>
+      </div>
+      <a href="#" class="hidden items-center gap-1 text-sm text-accent-blue transition-colors hover:text-accent-green md:inline-flex">
+        See All
+        <ArrowUpRight class="h-4 w-4" />
+      </a>
+    </div>
+
+    <!-- Project Cards -->
+    <div class="space-y-8">
+      <!-- Project 1 -->
+      <div data-reveal class="card-hover overflow-hidden rounded-2xl border border-dark-border bg-dark-card">
+        <div class="grid gap-0 md:grid-cols-2">
+          <!-- Image -->
+          <div class="relative flex items-center justify-center bg-gradient-to-br from-dark-border/50 to-dark-bg p-8 md:p-12">
+            <div class="flex h-48 w-full items-center justify-center rounded-xl border border-dark-border bg-dark-bg/50 md:h-64">
+              <Server class="float-icon h-20 w-20 text-accent-green/40" />
+            </div>
+          </div>
+          <!-- Content -->
+          <div class="p-8 md:p-10">
+            <div class="mb-4 flex items-center gap-3">
+              <Server class="h-5 w-5 text-accent-green" />
+              <h3 class="text-xl font-bold">SaaS Multi-tenant Architecture</h3>
+            </div>
+
+            <div class="space-y-4">
+              <div>
+                <h4 class="mb-1 text-xs font-semibold tracking-wider text-text-muted uppercase">Problem</h4>
+                <p class="text-sm leading-relaxed text-text-secondary">
+                  High latency and data leakage risks in a growing multi-tier SaaS application serving 500+ enterprise clients.
+                </p>
+              </div>
+              <div>
+                <h4 class="mb-1 text-xs font-semibold tracking-wider text-text-muted uppercase">Solution</h4>
+                <p class="text-sm leading-relaxed text-text-secondary">
+                  Implemented a Laravel-based multi-tenancy system with dynamic database isolation, per-tenant caching via Redis, and row-level security.
+                </p>
+              </div>
+              <div>
+                <h4 class="mb-1 text-xs font-semibold tracking-wider text-text-muted uppercase">Impact</h4>
+                <p class="text-sm leading-relaxed text-text-secondary">
+                  40% reduction in query times and zero data cross-contamination incidents over 18 months.
+                </p>
+              </div>
+            </div>
+
+            <div class="mt-6 flex flex-wrap gap-2">
+              <span class="rounded-full border border-dark-border bg-dark-bg px-3 py-1 text-xs text-text-muted">PHP/Laravel</span>
+              <span class="rounded-full border border-dark-border bg-dark-bg px-3 py-1 text-xs text-text-muted">AWS Hosting</span>
+              <span class="rounded-full border border-dark-border bg-dark-bg px-3 py-1 text-xs text-text-muted">Redis</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div data-reveal class="card-hover overflow-hidden rounded-2xl border border-dark-border bg-dark-card">
+        <div class="grid gap-0 md:grid-cols-2">
+          <!-- Image -->
+          <div class="relative flex items-center justify-center bg-gradient-to-br from-dark-border/50 to-dark-bg p-8 md:p-12">
+            <div class="flex h-48 w-full items-center justify-center rounded-xl border border-dark-border bg-dark-bg/50 md:h-64">
+              <Building2 class="float-icon h-20 w-20 text-accent-blue/40" />
+            </div>
+          </div>
+          <!-- Content -->
+          <div class="p-8 md:p-10">
+            <div class="mb-4 flex items-center gap-3">
+              <Building2 class="h-5 w-5 text-accent-blue" />
+              <h3 class="text-xl font-bold">Modern ERP Transformation</h3>
+            </div>
+
+            <div class="space-y-4">
+              <div>
+                <h4 class="mb-1 text-xs font-semibold tracking-wider text-text-muted uppercase">Problem</h4>
+                <p class="text-sm leading-relaxed text-text-secondary">
+                  Legacy VB6 ERP system causing high-impact downtime and blocking data and supply chain modernization efforts.
+                </p>
+              </div>
+              <div>
+                <h4 class="mb-1 text-xs font-semibold tracking-wider text-text-muted uppercase">Solution</h4>
+                <p class="text-sm leading-relaxed text-text-secondary">
+                  Built a microservices .NET Core implementation ecosystem with Event Sourcing using Kafka for real-time data synchronization.
+                </p>
+              </div>
+              <div>
+                <h4 class="mb-1 text-xs font-semibold tracking-wider text-text-muted uppercase">Impact</h4>
+                <p class="text-sm leading-relaxed text-text-secondary">
+                  Reduced system downtime by 95% while enabling real-time analytics, serving 10,000+ daily transactions.
+                </p>
+              </div>
+            </div>
+
+            <div class="mt-6 flex flex-wrap gap-2">
+              <span class="rounded-full border border-dark-border bg-dark-bg px-3 py-1 text-xs text-text-muted">.NET</span>
+              <span class="rounded-full border border-dark-border bg-dark-bg px-3 py-1 text-xs text-text-muted">Kafka</span>
+              <span class="rounded-full border border-dark-border bg-dark-bg px-3 py-1 text-xs text-text-muted">Azure Services</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

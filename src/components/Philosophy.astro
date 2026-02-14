@@ -1,0 +1,68 @@
+---
+import { Bot, ShieldCheck, Database } from '@lucide/astro';
+---
+
+<section id="philosophy" class="py-20 md:py-28">
+  <div class="mx-auto max-w-7xl px-6">
+    <!-- Section Header -->
+    <div data-reveal class="mb-6">
+      <div class="mb-3 inline-flex items-center gap-2 rounded-full border border-dark-border bg-dark-card px-4 py-1.5">
+        <span class="pulse-dot h-1.5 w-1.5 rounded-full bg-accent-green"></span>
+        <span class="text-xs font-medium tracking-wider text-text-secondary uppercase">Building Today</span>
+      </div>
+      <h2 class="text-3xl font-bold tracking-tight md:text-4xl">How I build in 2026</h2>
+    </div>
+
+    <p data-reveal class="mb-12 max-w-3xl text-base leading-relaxed text-text-secondary md:text-lg">
+      The era of manual coding is shifting to agentic-driven value. My workflow focuses on leveraging AI architectures to increase velocity by 10x without compromising quality or systems integrity.
+    </p>
+
+    <!-- Philosophy Items -->
+    <div data-reveal-stagger class="space-y-6">
+      <!-- Agent Orchestration -->
+      <div class="group card-hover rounded-2xl border border-dark-border bg-dark-card p-6 hover:border-accent-green/30 md:p-8">
+        <div class="flex items-start gap-5">
+          <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-accent-green/10">
+            <Bot class="icon-float h-6 w-6 text-accent-green" />
+          </div>
+          <div>
+            <h3 class="mb-2 text-lg font-bold text-text-primary">Agent Orchestration</h3>
+            <p class="text-sm leading-relaxed text-text-secondary">
+              Deploying specialized AI agents for testing, documentation, and continuous generation — using multi-agent DAGs to deeply integrate intelligence into every development workflow.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Automated Governance -->
+      <div class="group card-hover rounded-2xl border border-dark-border bg-dark-card p-6 hover:border-accent-blue/30 md:p-8">
+        <div class="flex items-start gap-5">
+          <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-accent-blue/10">
+            <ShieldCheck class="icon-float h-6 w-6 text-accent-blue" />
+          </div>
+          <div>
+            <h3 class="mb-2 text-lg font-bold text-text-primary">Automated Governance</h3>
+            <p class="text-sm leading-relaxed text-text-secondary">
+              Implementing AI-driven CI/CD gates that enforce architectural drift and security compliance automatically — reducing manual review overhead while maintaining enterprise-grade standards.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Data-Centric Evolution -->
+      <div class="group card-hover rounded-2xl border border-dark-border bg-dark-card p-6 hover:border-accent-green/30 md:p-8">
+        <div class="flex items-start gap-5">
+          <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-accent-green/10">
+            <Database class="icon-float h-6 w-6 text-accent-green" />
+          </div>
+          <div>
+            <h3 class="mb-2 text-lg font-bold text-text-primary">Data-Centric Evolution</h3>
+            <p class="text-sm leading-relaxed text-text-secondary">
+              Building systems that self-"LEAN model" from Day 1 with telemetry, RAG pipelines, and semantic search to capabilities that evolve the more users interact with them.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
