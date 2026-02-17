@@ -2,7 +2,7 @@
 import { Hexagon, Menu } from '@lucide/astro';
 ---
 
-<nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 border-b border-dark-border bg-dark-bg/80 backdrop-blur-md transition-all duration-300">
+<nav id="main-nav" aria-label="Main navigation" class="fixed top-0 left-0 right-0 z-50 border-b border-dark-border bg-dark-bg/80 backdrop-blur-md transition-all duration-300">
   <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
     <a href="/" class="flex items-center gap-2 text-lg font-bold tracking-tight text-text-primary">
       <Hexagon class="h-6 w-6 text-accent-green" />
@@ -18,7 +18,7 @@ import { Hexagon, Menu } from '@lucide/astro';
       </a>
     </div>
 
-    <button class="text-text-secondary md:hidden" id="mobile-menu-btn" aria-label="Toggle menu">
+    <button class="text-text-secondary md:hidden" id="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
       <Menu class="h-6 w-6" />
     </button>
   </div>
@@ -42,6 +42,8 @@ import { Hexagon, Menu } from '@lucide/astro';
 
   btn?.addEventListener('click', () => {
     menu?.classList.toggle('hidden');
+    const isOpen = !menu?.classList.contains('hidden');
+    btn?.setAttribute('aria-expanded', String(isOpen));
   });
 
   window.addEventListener('scroll', () => {

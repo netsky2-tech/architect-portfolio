@@ -3,9 +3,26 @@ import '../styles/global.css';
 
 interface Props {
   title?: string;
+  description?: string;
 }
 
-const { title = 'The Architect | Portfolio' } = Astro.props;
+const {
+  title = 'The Architect | Senior Software Engineer Portfolio',
+  description = 'Senior Software Engineer specializing in scalable .NET/Laravel backends, modern React/Vue frontends, and AI-driven enterprise solutions. 7+ years of experience delivering high-impact architecture.',
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://thearchitect.dev');
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'The Architect',
+  jobTitle: 'Senior Software Engineer',
+  url: canonicalURL.href,
+  description,
+  knowsAbout: ['.NET Core', 'Laravel', 'React', 'Vue.js', 'Azure', 'AWS', 'AI Engineering', 'System Architecture'],
+  sameAs: [],
+};
 ---
 
 <!doctype html>
@@ -14,13 +31,42 @@ const { title = 'The Architect | Portfolio' } = Astro.props;
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="canonical" href={canonicalURL.href} />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
 		<meta name="generator" content={Astro.generator} />
+
+		<!-- Primary Meta Tags -->
 		<title>{title}</title>
+		<meta name="title" content={title} />
+		<meta name="description" content={description} />
+		<meta name="author" content="The Architect" />
+		<meta name="theme-color" content="#07080d" />
+
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={canonicalURL.href} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:locale" content="en_US" />
+		<meta property="og:site_name" content="The Architect" />
+
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content={canonicalURL.href} />
+		<meta property="twitter:title" content={title} />
+		<meta property="twitter:description" content={description} />
+
+		<!-- Structured Data -->
+		<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 	</head>
 	<body class="min-h-screen bg-dark-bg text-text-primary antialiased">
+		<!-- Skip to main content link for keyboard/screen reader users -->
+		<a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-100 focus:rounded-lg focus:bg-accent-blue focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white focus:outline-none">
+			Skip to main content
+		</a>
+
 		<slot />
 
 		<script>

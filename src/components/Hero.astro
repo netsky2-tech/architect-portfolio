@@ -2,27 +2,29 @@
 import { ArrowRight, Layers } from '@lucide/astro';
 ---
 
-<section class="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28">
+<section aria-label="Introduction" class="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28">
   <!-- Subtle gradient background -->
-  <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(59,130,246,0.08)_0%,_transparent_60%)]"></div>
+  <div aria-hidden="true" class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.08)_0%,transparent_60%)]"></div>
 
   <div class="relative mx-auto max-w-7xl px-6">
     <!-- Badge -->
     <div class="hero-enter hero-enter-1 mb-8 inline-flex items-center gap-2 rounded-full border border-dark-border bg-dark-card px-4 py-1.5">
       <span class="pulse-dot h-1.5 w-1.5 rounded-full bg-accent-green"></span>
-      <span class="text-xs font-medium tracking-wider text-text-secondary uppercase">Trusted by Forward Thinkers</span>
+      <span class="text-xs font-medium tracking-wider text-text-secondary uppercase">Available for strategic projects</span>
     </div>
 
     <!-- Headline -->
     <h1 class="hero-enter hero-enter-2 max-w-4xl text-4xl font-extrabold leading-tight tracking-tight md:text-6xl lg:text-7xl">
-      Architecting
-      <span class="text-accent-green"> Scalable Systems</span>
-      <span class="text-text-primary"> for Large-Scale Impact.</span>
+      Senior Software
+      <span class="text-accent-blue">Architect</span>
+      <span class="text-text-primary"> &</span>
+      <span class="text-accent-blue">AI-Driven</span>
+      <span class="text-text-primary">Development Specialist.</span>
     </h1>
 
     <!-- Subtitle -->
     <p class="hero-enter hero-enter-3 mt-6 max-w-2xl text-lg leading-relaxed text-text-secondary md:text-xl">
-      Senior Software Engineer bridging the gap between high-performance .NET/Laravel backends and next-gen AI-driven enterprise solutions.
+      Construyendo infraestructuras escalables (.NET 8 / Laravel 12) donde la IA actúa como el estándar de oro en calidad, reduciendo el time-to-market en un 40% mediante ingeniería de contexto modular
     </p>
 
     <!-- CTA Buttons -->
@@ -38,22 +40,22 @@ import { ArrowRight, Layers } from '@lucide/astro';
     </div>
 
     <!-- Stats -->
-    <div id="stats-row" class="hero-enter hero-enter-5 mt-16 grid grid-cols-2 gap-6 border-t border-dark-border pt-10 md:grid-cols-4">
+    <div id="stats-row" role="list" aria-label="Key statistics" class="hero-enter hero-enter-5 mt-16 grid grid-cols-2 gap-6 border-t border-dark-border pt-10 md:grid-cols-4">
       <div>
-        <div class="text-3xl font-bold text-accent-green md:text-4xl" data-count-to="7" data-count-suffix="+">0+</div>
-        <div class="mt-1 text-sm text-text-muted">Years Experience</div>
+        <div class="text-3xl font-bold text-accent-blue md:text-4xl" data-count-to="7" data-count-suffix="+">0+</div>
+        <div class="mt-1 text-sm text-text-muted">Años de experiencia.</div>
       </div>
       <div>
-        <div class="text-3xl font-bold text-text-primary md:text-4xl" data-count-to="30" data-count-suffix="+">0+</div>
-        <div class="mt-1 text-sm text-text-muted">Projects Delivered</div>
+        <div class="text-3xl font-bold text-accent-blue md:text-4xl" data-count-to="15" data-count-suffix="+">0+</div>
+        <div class="mt-1 text-sm text-text-muted">Proyectos entregados.</div>
       </div>
       <div>
-        <div class="text-3xl font-bold text-text-primary md:text-4xl" data-count-to="99.9" data-count-suffix="%" data-count-decimals="1">0%</div>
-        <div class="mt-1 text-sm text-text-muted">Uptime Record</div>
+        <div class="text-3xl font-bold text-accent-blue md:text-4xl" data-count-to="99.9" data-count-suffix="%" data-count-decimals="1">0%</div>
+        <div class="mt-1 text-sm text-text-muted">Disponibilidad.</div>
       </div>
       <div>
         <div class="text-3xl font-bold text-accent-blue md:text-4xl" data-count-to="1" data-count-prefix="#">0</div>
-        <div class="mt-1 text-sm text-text-muted">Client Satisfaction</div>
+        <div class="mt-1 text-sm text-text-muted">Satisfacción del cliente.</div>
       </div>
     </div>
   </div>

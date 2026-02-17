@@ -2,7 +2,7 @@
 import { Send, Github, Linkedin, Mail } from '@lucide/astro';
 ---
 
-<section id="contact" class="py-20 md:py-28">
+<section id="contact" aria-labelledby="contact-heading" class="py-20 md:py-28">
   <div class="mx-auto max-w-7xl px-6">
     <div class="grid gap-12 md:grid-cols-2">
       <!-- Left -->
@@ -11,7 +11,7 @@ import { Send, Github, Linkedin, Mail } from '@lucide/astro';
           <span class="pulse-dot h-1.5 w-1.5 rounded-full bg-accent-blue"></span>
           <span class="text-xs font-medium tracking-wider text-text-secondary uppercase">Get in Touch</span>
         </div>
-        <h2 class="mb-4 text-3xl font-bold tracking-tight md:text-4xl">
+        <h2 id="contact-heading" class="mb-4 text-3xl font-bold tracking-tight md:text-4xl">
           Ready to architect your next system?
         </h2>
         <p class="max-w-md text-base leading-relaxed text-text-secondary">
@@ -36,12 +36,15 @@ import { Send, Github, Linkedin, Mail } from '@lucide/astro';
 
       <!-- Right - Form -->
       <div data-reveal="right" class="rounded-2xl border border-dark-border bg-dark-card p-6 md:p-8">
-        <form class="space-y-5">
+        <form class="space-y-5" aria-label="Contact form">
           <div>
             <label for="name" class="mb-1.5 block text-xs font-medium tracking-wider text-text-muted uppercase">Full Name</label>
             <input
               type="text"
               id="name"
+              name="name"
+              required
+              autocomplete="name"
               placeholder="Tell me your name, or your company name"
               class="w-full rounded-lg border border-dark-border bg-dark-bg px-4 py-3 text-sm text-text-primary placeholder-text-muted outline-none transition-colors focus:border-accent-blue"
             />
@@ -51,6 +54,9 @@ import { Send, Github, Linkedin, Mail } from '@lucide/astro';
             <input
               type="email"
               id="email"
+              name="email"
+              required
+              autocomplete="email"
               placeholder="your@email.com"
               class="w-full rounded-lg border border-dark-border bg-dark-bg px-4 py-3 text-sm text-text-primary placeholder-text-muted outline-none transition-colors focus:border-accent-blue"
             />
@@ -59,7 +65,9 @@ import { Send, Github, Linkedin, Mail } from '@lucide/astro';
             <label for="message" class="mb-1.5 block text-xs font-medium tracking-wider text-text-muted uppercase">Message</label>
             <textarea
               id="message"
+              name="message"
               rows="4"
+              required
               placeholder="Describe your project or role..."
               class="w-full resize-none rounded-lg border border-dark-border bg-dark-bg px-4 py-3 text-sm text-text-primary placeholder-text-muted outline-none transition-colors focus:border-accent-blue"
             ></textarea>

@@ -2,7 +2,7 @@
 import { Hexagon, Github, Linkedin, Twitter } from '@lucide/astro';
 ---
 
-<footer class="border-t border-dark-border py-12">
+<footer aria-label="Site footer" class="border-t border-dark-border py-12">
   <div class="mx-auto max-w-7xl px-6">
     <div data-reveal class="flex flex-col items-center justify-between gap-6 md:flex-row">
       <!-- Logo -->
@@ -12,15 +12,15 @@ import { Hexagon, Github, Linkedin, Twitter } from '@lucide/astro';
       </a>
 
       <!-- Links -->
-      <div class="flex items-center gap-6">
+      <nav aria-label="Footer navigation" class="flex items-center gap-6">
         <a href="#projects" class="text-sm text-text-muted transition-colors hover:text-text-primary">Projects</a>
         <a href="#stack" class="text-sm text-text-muted transition-colors hover:text-text-primary">Stack</a>
         <a href="#philosophy" class="text-sm text-text-muted transition-colors hover:text-text-primary">Philosophy</a>
         <a href="#contact" class="text-sm text-text-muted transition-colors hover:text-text-primary">Contact</a>
-      </div>
+      </nav>
 
       <!-- Socials -->
-      <div class="flex items-center gap-4">
+      <nav aria-label="Social media links" class="flex items-center gap-4">
         <a href="#" class="text-text-muted transition-colors hover:text-text-primary" aria-label="GitHub">
           <Github class="h-5 w-5" />
         </a>
@@ -30,7 +30,7 @@ import { Hexagon, Github, Linkedin, Twitter } from '@lucide/astro';
         <a href="#" class="text-text-muted transition-colors hover:text-text-primary" aria-label="Twitter">
           <Twitter class="h-5 w-5" />
         </a>
-      </div>
+      </nav>
     </div>
 
     <div class="mt-8 border-t border-dark-border pt-8 text-center text-xs text-text-muted">

@@ -3,37 +3,37 @@ import { Code, Brain, Users, Boxes } from '@lucide/astro';
 
 const categories = [
   {
-    title: 'Core Stack',
-    icon: 'code',
-    items: ['.NET Core', 'C# / F#', 'NodeJS'],
-  },
-  {
-    title: 'AI / Vision',
-    icon: 'brain',
-    items: ['React / Next', 'JavaScript/TS', 'TypeScript'],
-  },
-  {
-    title: 'Client-Fit',
-    icon: 'users',
-    items: ['Azure / AWS', 'IoT Stacks', 'SQL/NoSQL Admin'],
-  },
-  {
-    title: 'Frameworks',
+    title: 'AI Implementation',
     icon: 'boxes',
-    items: ['Security / DevOps', 'LangChain', 'Power BI+'],
+    items: ['Context Engineering', 'Modular prompting', 'SDLC Optimization', 'AI-Driven development'],
+  },
+  {
+    title: 'Enterprise Backend',
+    icon: 'code',
+    items: ['.NET Core 8', 'C#', 'Web Api', 'Microservices'],
+  },
+  {
+    title: 'Modern Web',
+    icon: 'brain',
+    items: ['Laravel 12', 'React 19', 'Next.js', 'Typescript'],
+  },
+  {
+    title: 'Cloud & Ops',
+    icon: 'users',
+    items: ['AWS', 'Docker', 'Kubernetes', 'CI/CD'],
   },
 ];
 ---
 
-<section id="stack" class="py-20 md:py-28">
+<section id="stack" aria-labelledby="stack-heading" class="py-20 md:py-28">
   <div class="mx-auto max-w-7xl px-6">
     <!-- Section Header -->
     <div data-reveal class="mb-12 text-center">
       <div class="mb-3 inline-flex items-center gap-2 rounded-full border border-dark-border bg-dark-card px-4 py-1.5">
         <span class="pulse-dot h-1.5 w-1.5 rounded-full bg-accent-green"></span>
-        <span class="text-xs font-medium tracking-wider text-text-secondary uppercase">Technology</span>
+        <span class="text-xs font-medium tracking-wider text-text-secondary uppercase">Tecnología</span>
       </div>
-      <h2 class="text-3xl font-bold tracking-tight md:text-4xl">Engineered Stack</h2>
+      <h2 id="stack-heading" class="text-3xl font-bold tracking-tight md:text-4xl">Stack tecnológico</h2>
     </div>
 
     <!-- Stack Grid -->
@@ -41,16 +41,16 @@ const categories = [
       {categories.map((cat, i) => (
         <div class="card-hover rounded-2xl border border-dark-border bg-dark-card p-6">
           <div class="mb-4 flex items-center gap-3">
-            {cat.icon === 'code' && <Code class="h-5 w-5 text-accent-green" />}
-            {cat.icon === 'brain' && <Brain class="h-5 w-5 text-accent-blue" />}
-            {cat.icon === 'users' && <Users class="h-5 w-5 text-accent-green" />}
-            {cat.icon === 'boxes' && <Boxes class="h-5 w-5 text-accent-blue" />}
+            {cat.icon === 'code' && <Code aria-hidden="true" class="h-5 w-5 text-accent-green" />}
+            {cat.icon === 'brain' && <Brain aria-hidden="true" class="h-5 w-5 text-accent-blue" />}
+            {cat.icon === 'users' && <Users aria-hidden="true" class="h-5 w-5 text-accent-green" />}
+            {cat.icon === 'boxes' && <Boxes aria-hidden="true" class="h-5 w-5 text-accent-blue" />}
             <h3 class="text-sm font-semibold tracking-wider text-text-muted uppercase">{cat.title}</h3>
           </div>
           <ul class="space-y-3">
             {cat.items.map((item) => (
               <li class="flex items-center gap-3 text-sm text-text-secondary">
-                <span class="h-1 w-1 rounded-full bg-text-muted"></span>
+                <span aria-hidden="true" class="h-1 w-1 rounded-full bg-text-muted"></span>
                 {item}
               </li>
             ))}
