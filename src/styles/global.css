@@ -1,15 +1,54 @@
 @import "tailwindcss";
 
 @theme {
-  --color-dark-bg: #07080d;
-  --color-dark-card: #0d1017;
-  --color-dark-border: #1a1f2e;
-  --color-accent-green: #22c55e;
-  --color-accent-blue: #3b82f6;
-  --color-text-primary: #f1f5f9;
-  --color-text-secondary: #94a3b8;
-  --color-text-muted: #64748b;
+  /* ── Cyber-Brutalist Design System: "The Architect's Terminal" ── */
+  
+  /* Surface Hierarchy (Tonal Layering) */
+  --color-surface: #10141a;
+  --color-surface-container-lowest: #0a0e14;
+  --color-surface-container-low: #161a21;
+  --color-surface-container: #1c2028;
+  --color-surface-container-high: #262a31;
+  --color-surface-container-highest: #31353d;
+  --color-surface-variant: #42464e;
+  
+  /* Primary: "Active Execution" (Terminal Green) */
+  --color-primary: #00ff41;
+  --color-primary-container: #00ff41;
+  --color-on-primary: #000000;
+  --color-on-primary-container: #000000;
+  
+  /* Tertiary: ".NET Robustness" (Cobalt Blue) */
+  --color-tertiary: #b2c5ff;
+  --color-tertiary-container: #3d5a80;
+  --color-tertiary-fixed-dim: #b2c5ff;
+  --color-on-tertiary: #000000;
+  --color-on-tertiary-container: #ffffff;
+  
+  /* Text Hierarchy */
+  --color-text-primary: #e8edf3;
+  --color-text-secondary: #a0aab8;
+  --color-text-muted: #6b7280;
+  --color-on-surface: #e8edf3;
+  
+  /* Outline & Borders */
+  --color-outline: #42464e;
+  --color-outline-variant: #31353d;
+  
+  /* Legacy aliases (for gradual migration) */
+  --color-dark-bg: #10141a;
+  --color-dark-card: #161a21;
+  --color-dark-border: #31353d;
+  --color-accent-green: #00ff41;
+  --color-accent-blue: #b2c5ff;
+  
+  /* Typography */
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  
+  /* Spacing for "No-Line" Rule */
+  --spacing-section-gap: 80px;
+  --spacing-module-gap: 32px;
 }
 
 @layer base {
@@ -122,45 +161,38 @@
   transform: translateY(0);
 }
 
-/* ── Card hover lift ── */
+/* ── Cyber-Brutalist Card Hover: Tonal Layering ── */
 .card-hover {
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.35s ease,
-              box-shadow 0.35s ease;
+  background-color: var(--color-surface-container-low);
+  transition: background-color 0.35s ease,
+              border-color 0.35s ease;
 }
 .card-hover:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  background-color: var(--color-surface-container-highest);
+  border-color: var(--color-outline);
 }
 
-/* ── Button hover effects ── */
+/* ── Button hover effects: Ambient Shadows ── */
 .btn-primary {
-  transition: transform 0.2s ease, opacity 0.2s ease, box-shadow 0.3s ease;
+  transition: opacity 0.2s ease, box-shadow 0.3s ease;
 }
 .btn-primary:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
-}
-.btn-primary:active {
-  transform: translateY(0);
+  box-shadow: 0 20px 50px rgba(0, 255, 65, 0.05);
 }
 
 .btn-green {
-  transition: transform 0.2s ease, opacity 0.2s ease, box-shadow 0.3s ease;
+  transition: opacity 0.2s ease, box-shadow 0.3s ease;
 }
 .btn-green:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 20px rgba(34, 197, 94, 0.3);
-}
-.btn-green:active {
-  transform: translateY(0);
+  box-shadow: 0 20px 50px rgba(0, 255, 65, 0.08);
 }
 
 .btn-outline {
-  transition: transform 0.2s ease, border-color 0.3s ease, color 0.3s ease;
+  transition: border-color 0.3s ease, color 0.3s ease;
 }
 .btn-outline:hover {
-  transform: translateY(-1px);
+  border-color: var(--color-outline);
+  color: var(--color-text-primary);
 }
 
 /* ── Icon hover float ── */
@@ -176,9 +208,9 @@
   animation: pulse-dot 2s ease-in-out infinite;
 }
 
-/* ── Navbar scroll state ── */
+/* ── Navbar scroll state: Tonal Shift ── */
 .nav-scrolled {
-  box-shadow: 0 1px 24px rgba(0, 0, 0, 0.4);
+  background-color: var(--color-surface-container-high);
   border-color: transparent !important;
 }
 
@@ -187,22 +219,67 @@
   animation: float 4s ease-in-out infinite;
 }
 
+/* ── Ghost Borders ── */
+.ghost-border {
+  border: 1px solid rgba(66, 70, 78, 0.15);
+}
+
+.ghost-border-bottom {
+  border-bottom: 2px solid var(--color-primary-container);
+}
+
+.sharp-border {
+  border: 1px solid rgba(0, 255, 65, 0.2);
+}
+
+/* ── Dot Grid Pattern ── */
+.dot-grid {
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+/* ── Glass Effect ── */
+.glass-effect {
+  background-color: rgba(66, 70, 78, 0.6);
+  backdrop-filter: blur(20px);
+}
+
+/* ── Typography Utilities ── */
+.mono-display {
+  font-family: var(--font-mono);
+  letter-spacing: -0.02em;
+}
+
+.mono-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.mono-data {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
 /* ── Focus ring for form inputs ── */
 input:focus, textarea:focus {
-  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.15);
+  outline: none;
+  border-bottom: 2px solid var(--color-primary-container);
 }
 
 /* ── Focus-visible for keyboard navigation ── */
 a:focus-visible,
 button:focus-visible,
 [role="button"]:focus-visible {
-  outline: 2px solid var(--color-accent-blue);
+  outline: 2px solid var(--color-primary);
   outline-offset: 2px;
-  border-radius: 4px;
+  border-radius: 0px;
 }
 input:focus-visible, textarea:focus-visible {
-  outline: 2px solid var(--color-accent-blue);
+  outline: 2px solid var(--color-primary);
   outline-offset: 0;
+  border-radius: 0px;
 }
 
 /* ── Respect reduced motion ── */

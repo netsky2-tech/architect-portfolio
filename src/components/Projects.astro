@@ -1,321 +1,131 @@
 ---
-import { Server, ArrowUpRight, Building2, Maximize2, X } from "@lucide/astro";
+import { ArrowUpRight } from "@lucide/astro";
+import ProjectCard from "./ProjectCard.astro";
 ---
 
 <section
   id="projects"
   aria-labelledby="projects-heading"
-  class="py-20 md:py-28"
+  class="py-48 px-8 lg:px-24 bg-surface-container-lowest/30 relative"
 >
-  <div class="mx-auto max-w-7xl px-6">
+  <div class="mx-auto max-w-7xl">
     <!-- Section Header -->
-    <div data-reveal class="mb-12 flex items-end justify-between">
-      <div>
-        <div
-          class="mb-3 inline-flex items-center gap-2 rounded-full border border-dark-border bg-dark-card px-4 py-1.5"
-        >
-          <span class="pulse-dot h-1.5 w-1.5 rounded-full bg-accent-blue"
-          ></span>
-          <span
-            class="text-xs font-medium tracking-wider text-text-secondary uppercase"
-            >Casos de estudio</span
+    <div data-reveal class="mb-16">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+        <div>
+          <div class="mono-label text-accent-green text-[10px] tracking-[0.3em] uppercase mb-4">
+            MODULE_EXPLORER
+          </div>
+          <h2
+            id="projects-heading"
+            class="text-4xl md:text-5xl font-light tracking-tight text-text-primary uppercase"
           >
+            PROJECT TERMINALS
+          </h2>
         </div>
-        <h2
-          id="projects-heading"
-          class="text-3xl font-bold tracking-tight md:text-4xl"
-        >
-          Arquitecturas seleccionadas
-        </h2>
+        <div class="mono-label text-[9px] text-text-muted/40 tracking-[0.15em] uppercase">
+          TOTAL_ENTRIES: 03 // FILTERS: [PROD, ACTIVE]
+        </div>
       </div>
-      <a
-        href="#"
-        class="hidden items-center gap-1 text-sm text-accent-blue transition-colors hover:text-accent-green md:inline-flex"
-      >
-        Ver todo
-        <ArrowUpRight class="h-4 w-4" />
-      </a>
     </div>
 
-    <!-- Project Cards -->
-    <div class="space-y-8">
-      <!-- Project 1 -->
-      <article
-        data-reveal
-        aria-label="Enterprise Infrastructure case study"
-        class="card-hover overflow-hidden rounded-2xl border border-dark-border bg-dark-card"
-      >
-        <div class="grid gap-0 md:grid-cols-2">
-          <!-- Image -->
-          <div
-            class="relative flex items-center justify-center bg-linear-to-br from-dark-border/50 to-dark-bg p-4 md:p-8"
-          >
-            <button
-              type="button"
-              class="lightbox-trigger group relative w-full cursor-zoom-in overflow-hidden rounded-xl border border-dark-border bg-dark-bg/50"
-              data-img-src="/images/Backend_Diagram_Agenda.png"
-              data-img-alt="AI-Driven Framework architecture diagram"
-              aria-label="View diagram in full size"
-            >
-              <img
-                src="/images/Backend_Diagram_Agenda.png"
-                alt="AI-Driven Framework architecture diagram"
-                class="h-auto w-full object-contain p-2 transition-transform duration-300 group-hover:scale-105"
-                loading="lazy"
-              />
-              <span class="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-lg bg-dark-bg/80 text-text-muted opacity-0 backdrop-blur-sm transition-opacity group-hover:opacity-100">
-                <Maximize2 aria-hidden="true" class="h-4 w-4" />
-              </span>
-            </button>
-          </div>
-          <!-- Content -->
-          <div class="p-8 md:p-10">
-            <div class="mb-4 flex items-center gap-3">
-              <Server aria-hidden="true" class="h-5 w-5 text-accent-green" />
-              <h3 class="text-xl font-bold">AI-Driven Framework</h3>
-            </div>
-
-            <div class="space-y-4">
-              <div>
-                <h4
-                  class="mb-1 text-xs font-semibold tracking-wider text-text-muted uppercase"
-                >
-                  Problema
-                </h4>
-                <ul class="space-y-1.5 text-sm leading-relaxed text-text-secondary">
-                  <li class="flex gap-2"><span aria-hidden="true" class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-green/60"></span>Deuda técnica e incoherencia arquitectónica creciente al acelerar entregas a gran escala.</li>
-                  <li class="flex gap-2"><span aria-hidden="true" class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-green/60"></span>Estandarizar generación de código IA cumpliendo estrictamente Clean Code y DDD en alta complejidad.</li>
-                </ul>
-              </div>
-              <div>
-                <h4
-                  class="mb-1 text-xs font-semibold tracking-wider text-text-muted uppercase"
-                >
-                  Solución
-                </h4>
-                <ul class="space-y-1.5 text-sm leading-relaxed text-text-secondary">
-                  <li class="flex gap-2"><span aria-hidden="true" class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-blue/60"></span>Framework de Ingeniería de Contexto Modular que centraliza y gobierna el ciclo de vida de desarrollo.</li>
-                  <li class="flex gap-2"><span aria-hidden="true" class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-blue/60"></span>Sistema de definición de dominio (Agents.md / Skills.md) para que la IA opere con alta precisión según el stack técnico.</li>
-                  <li class="flex gap-2"><span aria-hidden="true" class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-blue/60"></span>Arquitectura Offline-First con React 19, Zustand y DexieDB — sincronización con latencia cero.</li>
-                  <li class="flex gap-2"><span aria-hidden="true" class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-blue/60"></span>Estándares enterprise con Laravel 12 y PostgreSQL bajo SOLID y Arquitectura Hexagonal.</li>
-                </ul>
-              </div>
-              <div>
-                <h4
-                  class="mb-1 text-xs font-semibold tracking-wider text-text-muted uppercase"
-                >
-                  Impacto
-                </h4>
-                <ul class="space-y-1.5 text-sm leading-relaxed text-text-secondary">
-                  <li class="flex gap-2"><span aria-hidden="true" class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-green/60"></span><strong class="font-medium text-text-primary">40% reducción</strong> en tiempos de desarrollo mediante estandarización de componentes y lógica de negocio.</li>
-                  <li class="flex gap-2"><span aria-hidden="true" class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-green/60"></span>Eliminación de inconsistencia arquitectónica — IA como estándar técnico validado en cada commit.</li>
-                  <li class="flex gap-2"><span aria-hidden="true" class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-green/60"></span>Escalabilidad fortalecida con contenedores Docker para portabilidad y alta disponibilidad.</li>
-                </ul>
-              </div>
-              <div>
-                <h4
-                  class="mb-1 text-xs font-semibold tracking-wider text-text-muted uppercase"
-                >
-                  Tecnologías
-                </h4>
-              </div>
-            </div>
-
-            <div class="mt-6 flex flex-wrap gap-2">
-              <span
-                class="rounded-full border border-dark-border bg-dark-bg px-3 py-1 text-xs text-text-muted"
-                >Modular Orchestration</span
-              >
-              <span
-                class="rounded-full border border-dark-border bg-dark-bg px-3 py-1 text-xs text-text-muted"
-                >Advance Prompting Engineering</span
-              >
-              <span
-                class="rounded-full border border-dark-border bg-dark-bg px-3 py-1 text-xs text-text-muted"
-                >React 19</span
-              >
-              <span
-                class="rounded-full border border-dark-border bg-dark-bg px-3 py-1 text-xs text-text-muted"
-                >Zustand</span
-              >
-              <span
-                class="rounded-full border border-dark-border bg-dark-bg px-3 py-1 text-xs text-text-muted"
-                >Zod</span
-              >
-              <span
-                class="rounded-full border border-dark-border bg-dark-bg px-3 py-1 text-xs text-text-muted"
-                >DexieDB</span
-              >
-              <span
-                class="rounded-full border border-dark-border bg-dark-bg px-3 py-1 text-xs text-text-muted"
-                >Laravel 12</span
-              >
-              <span
-                class="rounded-full border border-dark-border bg-dark-bg px-3 py-1 text-xs text-text-muted"
-                >PostgreSQL</span
-              >
-              <span
-                class="rounded-full border border-dark-border bg-dark-bg px-3 py-1 text-xs text-text-muted"
-                >Docker</span
-              >
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- Project 2 -->
-      <article
-        data-reveal
-        aria-label="Modern ERP Transformation case study"
-        class="card-hover overflow-hidden rounded-2xl border border-dark-border bg-dark-card"
-      >
-        <div class="grid gap-0 md:grid-cols-2">
-          <!-- Image -->
-          <div
-            class="relative flex items-center justify-center bg-linear-to-br from-dark-border/50 to-dark-bg p-8 md:p-12"
-          >
-            <div
-              class="flex h-48 w-full items-center justify-center rounded-xl border border-dark-border bg-dark-bg/50 md:h-64"
-            >
-              <Building2
-                aria-hidden="true"
-                class="float-icon h-20 w-20 text-accent-blue/40"
-              />
-            </div>
-          </div>
-          <!-- Content -->
-          <div class="p-8 md:p-10">
-            <div class="mb-4 flex items-center gap-3">
-              <Building2 aria-hidden="true" class="h-5 w-5 text-accent-blue" />
-              <h3 class="text-xl font-bold">Modernización Hospitalaria</h3>
-            </div>
-
-            <div class="space-y-4">
-              <div>
-                <h4
-                  class="mb-1 text-xs font-semibold tracking-wider text-text-muted uppercase"
-                >
-                  Problema
-                </h4>
-                <p class="text-sm leading-relaxed text-text-secondary">
-                  Migración Crítica .NET Core 8 - Sector Salud
-                </p>
-              </div>
-              <div>
-                <h4
-                  class="mb-1 text-xs font-semibold tracking-wider text-text-muted uppercase"
-                >
-                  Solución
-                </h4>
-                <p class="text-sm leading-relaxed text-text-secondary">
-                  Liderazgo en la migración de sistemas legacy a .NET 8,
-                  eliminando cuellos de botella en SQL Server y acelerando la
-                  atención de pacientes.
-                </p>
-              </div>
-              <div>
-                <h4
-                  class="mb-1 text-xs font-semibold tracking-wider text-text-muted uppercase"
-                >
-                  Tecnologías
-                </h4>
-                <p class="text-sm leading-relaxed text-text-secondary">
-                  .NET 8, SQL Server, Entity Framework.
-                </p>
-              </div>
-            </div>
-
-            <div class="mt-6 flex flex-wrap gap-2">
-              <span
-                class="rounded-full border border-dark-border bg-dark-bg px-3 py-1 text-xs text-text-muted"
-                >.NET</span
-              >
-              <span
-                class="rounded-full border border-dark-border bg-dark-bg px-3 py-1 text-xs text-text-muted"
-                >SQL Server</span
-              >
-              <span
-                class="rounded-full border border-dark-border bg-dark-bg px-3 py-1 text-xs text-text-muted"
-                >Entity Framework</span
-              >
-              <span
-                class="rounded-full border border-dark-border bg-dark-bg px-3 py-1 text-xs text-text-muted"
-                >Git</span
-              >
-            </div>
-          </div>
-        </div>
-      </article>
+    <!-- Project Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+      <ProjectCard
+        title="AINativeNav: AI-Powered Geocoding"
+        titleEn="AINativeNav: AI-Powered Geocoding"
+        filename="GeocodingOrchestrator.tsx"
+        description="Solución al sistema de direcciones por referencia de Nicaragua mediante LLMs para traducción a coordenadas geográficas. Implementación de orquestación de contexto modular para procesar lenguaje natural semántico."
+        descriptionEn="Solution to Nicaragua's reference-based address system using LLMs for translation to geographic coordinates. Implementation of modular context orchestration to process semantic natural language."
+        imageSrc="/images/AiNativeNav.png"
+        imageAlt="AINativeNav geocoding architecture"
+        stack={[
+          { icon: "⚛️", name: "REACT 19" },
+          { icon: "🐘", name: "POSTGRESQL" },
+          { icon: "🐳", name: "DOCKER" }
+        ]}
+        status="ACTIVO"
+        statusEn="ACTIVE"
+      />
+      
+      <ProjectCard
+        title="Hospital Monte España"
+        titleEn="Hospital Monte España"
+        filename="AdmissionSystem.cs"
+        description="Migración integral del sistema de admisión hospitalaria hacia arquitectura moderna. Transición exitosa a .NET Core 8, eliminando cuellos de botella en SQL Server. Incremento del 25% en velocidad de procesamiento de pacientes."
+        descriptionEn="Comprehensive migration of hospital admission system to modern architecture. Successful transition to .NET Core 8, eliminating SQL Server bottlenecks. 25% increase in patient processing speed."
+        imageSrc="/images/HospitalMonteEspana.png"
+        imageAlt="Hospital admission system architecture"
+        stack={[
+          { icon: "⚡", name: ".NET 8" },
+          { icon: "🗄️", name: "SQL SERVER" },
+          { icon: "📊", name: "EF CORE" }
+        ]}
+        status="PRODUCCIÓN"
+        statusEn="PRODUCTION"
+      />
+      
+      <ProjectCard
+        title="SaaS Smart Agenda"
+        titleEn="SaaS Smart Agenda"
+        filename="OfflineFirstAgenda.php"
+        description="Sistema de gestión de citas y agendas para profesionales con nichos dinámicos. Arquitectura Offline-first con DexieDB para persistencia en navegador. Sincronización con latencia cero y reducción del 40% en tiempo de desarrollo mediante AIDD."
+        descriptionEn="Appointment and schedule management system for professionals with dynamic niches. Offline-first architecture with DexieDB for browser persistence. Zero-latency sync and 40% reduction in development time through AIDD."
+        imageSrc="/images/SaaSSmartAgenda.png"
+        imageAlt="Smart Agenda offline-first architecture"
+        stack={[
+          { icon: "🐘", name: "LARAVEL 12" },
+          { icon: "⚛️", name: "REACT 19" },
+          { icon: "💾", name: "DEXIEDB" }
+        ]}
+        status="ACTIVO"
+        statusEn="ACTIVE"
+      />
     </div>
   </div>
 </section>
 
-<!-- Lightbox Overlay -->
-<div
-  id="lightbox-overlay"
-  class="fixed inset-0 z-[200] flex items-center justify-center bg-dark-bg/90 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300"
-  role="dialog"
-  aria-modal="true"
-  aria-label="Image viewer"
->
-  <button
-    id="lightbox-close"
-    type="button"
-    class="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-dark-card/80 text-text-muted backdrop-blur-sm transition-colors hover:bg-dark-card hover:text-text-primary"
-    aria-label="Close image viewer"
-  >
-    <X class="h-5 w-5" />
-  </button>
-  <img
-    id="lightbox-img"
-    src=""
-    alt=""
-    class="max-h-[90vh] max-w-[90vw] rounded-xl object-contain shadow-2xl transition-transform duration-300 scale-95"
-  />
-</div>
-
 <script>
-  const overlay = document.getElementById('lightbox-overlay') as HTMLDivElement;
-  const lightboxImg = document.getElementById('lightbox-img') as HTMLImageElement;
-  const closeBtn = document.getElementById('lightbox-close') as HTMLButtonElement;
-  const triggers = document.querySelectorAll<HTMLButtonElement>('.lightbox-trigger');
+  import { getTranslations, type Language } from '../i18n/translations';
 
-  function openLightbox(src: string, alt: string) {
-    lightboxImg.src = src;
-    lightboxImg.alt = alt;
-    overlay.classList.remove('opacity-0', 'pointer-events-none');
-    overlay.classList.add('opacity-100');
-    lightboxImg.classList.remove('scale-95');
-    lightboxImg.classList.add('scale-100');
-    document.body.style.overflow = 'hidden';
-    closeBtn.focus();
-  }
-
-  function closeLightbox() {
-    overlay.classList.add('opacity-0', 'pointer-events-none');
-    overlay.classList.remove('opacity-100');
-    lightboxImg.classList.add('scale-95');
-    lightboxImg.classList.remove('scale-100');
-    document.body.style.overflow = '';
-  }
-
-  triggers.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const src = btn.dataset.imgSrc || '';
-      const alt = btn.dataset.imgAlt || '';
-      openLightbox(src, alt);
-    });
-  });
-
-  closeBtn?.addEventListener('click', closeLightbox);
-
-  overlay?.addEventListener('click', (e) => {
-    if (e.target === overlay) closeLightbox();
-  });
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && !overlay.classList.contains('pointer-events-none')) {
-      closeLightbox();
+  const headingEl = document.getElementById('projects-heading') as HTMLHeadingElement;
+  const projectCards = document.querySelectorAll('[data-title-es]');
+  
+  function updateProjectsContent(lang: Language) {
+    const t = getTranslations(lang);
+    if (headingEl) {
+      headingEl.textContent = 'PROJECT TERMINALS';
     }
+
+    // Update each project card
+    projectCards.forEach(card => {
+      const titleEl = card.querySelector('.project-title');
+      const descEl = card.querySelector('.project-description');
+      const statusEl = card.querySelector('.project-status');
+
+      if (titleEl) {
+        titleEl.textContent = lang === 'es' 
+          ? card.getAttribute('data-title-es') || ''
+          : card.getAttribute('data-title-en') || '';
+      }
+      if (descEl) {
+        descEl.textContent = lang === 'es'
+          ? card.getAttribute('data-desc-es') || ''
+          : card.getAttribute('data-desc-en') || '';
+      }
+      if (statusEl) {
+        statusEl.textContent = lang === 'es'
+          ? card.getAttribute('data-status-es') || ''
+          : card.getAttribute('data-status-en') || '';
+      }
+    });
+  }
+
+  window.addEventListener('languageChange', (e: Event) => {
+    const customEvent = e as CustomEvent<{ lang: Language }>;
+    updateProjectsContent(customEvent.detail.lang);
   });
+
+  const currentLang = (localStorage.getItem('lang') as Language) || 'es';
+  updateProjectsContent(currentLang);
 </script>

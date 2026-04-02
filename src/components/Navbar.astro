@@ -1,36 +1,46 @@
 ---
-import { Hexagon, Menu } from '@lucide/astro';
+import { Menu } from '@lucide/astro';
+import LanguageToggle from './LanguageToggle.astro';
 ---
 
-<nav id="main-nav" aria-label="Main navigation" class="fixed top-0 left-0 right-0 z-50 border-b border-dark-border bg-dark-bg/80 backdrop-blur-md transition-all duration-300">
-  <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-    <a href="/" class="flex items-center gap-2 text-lg font-bold tracking-tight text-text-primary">
-      <Hexagon class="h-6 w-6 text-accent-green" />
-      <span>THE ARCHITECT</span>
-    </a>
-
-    <div class="hidden items-center gap-8 md:flex">
-      <a href="#projects" class="text-sm text-text-secondary transition-colors hover:text-text-primary">Projects</a>
-      <a href="#stack" class="text-sm text-text-secondary transition-colors hover:text-text-primary">Tech Stack</a>
-      <a href="#philosophy" class="text-sm text-text-secondary transition-colors hover:text-text-primary">Philosophy</a>
-      <a href="#contact" class="btn-green rounded-lg bg-accent-green px-5 py-2 text-sm font-semibold text-dark-bg">
-        Hire Team
+<nav id="main-nav" class="fixed top-0 z-50 w-full bg-dark-bg border-b border-accent-green/20">
+  <div class="mx-auto max-w-[1920px] px-8">
+    <div class="flex items-center justify-between h-16">
+      <!-- Left: Logo -->
+      <a href="/" class="mono-display text-accent-green text-sm md:text-base font-bold tracking-tight hover:text-accent-green/80 transition-colors">
+        OCTAVIO_MORALES v4.0
       </a>
-    </div>
 
-    <button class="text-text-secondary md:hidden" id="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
-      <Menu class="h-6 w-6" />
-    </button>
+      <!-- Center: Navigation Links -->
+      <div class="hidden items-center gap-6 lg:gap-12 md:flex">
+        <a href="#" class="mono-label text-[10px] text-accent-green tracking-[0.2em] uppercase">ROOT</a>
+        <a href="#projects" class="mono-label text-[10px] text-text-muted hover:text-accent-green tracking-[0.2em] uppercase transition-colors">PROJECTS</a>
+        <a href="#stack" class="mono-label text-[10px] text-text-muted hover:text-accent-green tracking-[0.2em] uppercase transition-colors">SKILLS</a>
+        <a href="#contact" class="mono-label text-[10px] text-text-muted hover:text-accent-green tracking-[0.2em] uppercase transition-colors">CONTACT</a>
+      </div>
+
+      <!-- Right: System Status -->
+      <div class="hidden items-center gap-4 lg:gap-6 lg:flex">
+        <LanguageToggle />
+        <div class="mono-label hidden xl:flex items-center gap-4 text-[9px] text-text-muted/60 tracking-[0.15em] uppercase">
+          <span>LATENCY: <span class="text-accent-green">2MS</span></span>
+          <span class="text-text-muted/30">//</span>
+          <span>MANAGUA_NODE: <span class="text-text-muted/40">12.1150° N, 86.2362° W</span></span>
+        </div>
+      </div>
+
+      <button class="text-text-secondary md:hidden" id="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+        <Menu class="h-6 w-6" />
+      </button>
+    </div>
   </div>
 
   <div class="hidden border-t border-dark-border md:hidden" id="mobile-menu">
     <div class="flex flex-col gap-4 px-6 py-4">
-      <a href="#projects" class="text-sm text-text-secondary transition-colors hover:text-text-primary">Projects</a>
-      <a href="#stack" class="text-sm text-text-secondary transition-colors hover:text-text-primary">Tech Stack</a>
-      <a href="#philosophy" class="text-sm text-text-secondary transition-colors hover:text-text-primary">Philosophy</a>
-      <a href="#contact" class="inline-block rounded-lg bg-accent-green px-5 py-2 text-center text-sm font-semibold text-dark-bg transition-opacity hover:opacity-90">
-        Hire Team
-      </a>
+      <a href="#" class="text-sm text-accent-green">Root</a>
+      <a href="#projects" class="text-sm text-text-muted transition-colors hover:text-text-primary">Projects</a>
+      <a href="#stack" class="text-sm text-text-muted transition-colors hover:text-text-primary">Skills</a>
+      <a href="#contact" class="text-sm text-text-muted transition-colors hover:text-text-primary">Contact</a>
     </div>
   </div>
 </nav>
@@ -53,4 +63,34 @@ import { Hexagon, Menu } from '@lucide/astro';
       nav?.classList.remove('nav-scrolled');
     }
   }, { passive: true });
+
+  // Language support
+  import { getTranslations, type Language } from '../i18n/translations';
+
+  const navLinks = {
+    projects: document.querySelectorAll('a[href="#projects"]'),
+    stack: document.querySelectorAll('a[href="#stack"]'),
+    contact: document.querySelectorAll('a[href="#contact"]'),
+  };
+
+  function updateNavContent(lang: Language) {
+    const t = getTranslations(lang);
+    navLinks.projects.forEach(link => {
+      if (link) link.textContent = t.nav.projects.toUpperCase();
+    });
+    navLinks.stack.forEach(link => {
+      if (link) link.textContent = lang === 'es' ? 'SKILLS' : 'SKILLS';
+    });
+    navLinks.contact.forEach(link => {
+      if (link) link.textContent = t.nav.contact.toUpperCase();
+    });
+  }
+
+  window.addEventListener('languageChange', (e: Event) => {
+    const customEvent = e as CustomEvent<{ lang: Language }>;
+    updateNavContent(customEvent.detail.lang);
+  });
+
+  const currentLang = (localStorage.getItem('lang') as Language) || 'es';
+  updateNavContent(currentLang);
 </script>

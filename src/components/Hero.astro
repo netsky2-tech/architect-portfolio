@@ -1,65 +1,122 @@
 ---
-import { ArrowRight, Layers } from '@lucide/astro';
+import { ArrowRight, Hexagon, FileCode, Settings } from '@lucide/astro';
 ---
 
-<section aria-label="Introduction" class="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28">
-  <!-- Subtle gradient background -->
-  <div aria-hidden="true" class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.08)_0%,transparent_60%)]"></div>
+<section id="hero" aria-label="Introduction" class="relative min-h-screen flex items-center pt-32 pb-48 overflow-hidden bg-dark-bg">
+  <!-- Dot grid background -->
+  <div aria-hidden="true" class="pointer-events-none absolute inset-0 dot-grid opacity-40"></div>
 
-  <div class="relative mx-auto max-w-7xl px-6">
-    <!-- Badge -->
-    <div class="hero-enter hero-enter-1 mb-8 inline-flex items-center gap-2 rounded-full border border-dark-border bg-dark-card px-4 py-1.5">
-      <span class="pulse-dot h-1.5 w-1.5 rounded-full bg-accent-green"></span>
-      <span class="text-xs font-medium tracking-wider text-text-secondary uppercase">Available for strategic projects</span>
-    </div>
+  <div class="relative mx-auto max-w-7xl px-6 w-full">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-24 items-center">
+      <!-- Left: Content -->
+      <div class="lg:col-span-7 space-y-12">
+        <!-- System Path Badge -->
+        <div class="hero-enter hero-enter-1 inline-flex items-center gap-4 py-2 px-4 bg-surface-container-high/30 border-l-2 border-accent-green">
+          <span class="mono-label text-accent-green text-[11px] tracking-widest">SYSTEM_PATH: /usr/architect/core_logic</span>
+        </div>
 
-    <!-- Headline -->
-    <h1 class="hero-enter hero-enter-2 max-w-4xl text-4xl font-extrabold leading-tight tracking-tight md:text-6xl lg:text-7xl">
-      Senior Software
-      <span class="text-accent-blue">Architect</span>
-      <span class="text-text-primary"> &</span>
-      <span class="text-accent-blue">AI-Driven</span>
-      <span class="text-text-primary">Development Specialist.</span>
-    </h1>
+        <!-- Headline -->
+        <h1 class="hero-enter hero-enter-2 text-6xl lg:text-8xl leading-[1] tracking-tight text-text-primary font-light">
+          Architecting systems where <span class="text-accent-green italic" style="text-shadow: 0 0 20px rgba(0, 255, 65, 0.5);">AI</span> is the gold standard of quality.
+        </h1>
 
-    <!-- Subtitle -->
-    <p class="hero-enter hero-enter-3 mt-6 max-w-2xl text-lg leading-relaxed text-text-secondary md:text-xl">
-      Construyendo infraestructuras escalables (.NET 8 / Laravel 12) donde la IA actúa como el estándar de oro en calidad, reduciendo el time-to-market en un 40% mediante ingeniería de contexto modular
-    </p>
+        <!-- Subtitle -->
+        <p class="hero-enter hero-enter-3 text-xl text-text-secondary max-w-2xl leading-relaxed font-light">
+          Senior Software Engineer specializing in High-Performance .NET Architectures and AI Orchestration. Bridging legacy reliability with cognitive automation.
+        </p>
 
-    <!-- CTA Buttons -->
-    <div class="hero-enter hero-enter-4 mt-10 flex flex-wrap items-center gap-4">
-      <a href="#projects" class="btn-primary inline-flex items-center gap-2 rounded-lg bg-accent-blue px-6 py-3 text-sm font-semibold text-white">
-        View Full Portfolio
-        <ArrowRight class="h-4 w-4" />
-      </a>
-      <a href="#stack" class="btn-outline inline-flex items-center gap-2 rounded-lg border border-dark-border px-6 py-3 text-sm font-semibold text-text-secondary hover:border-text-muted hover:text-text-primary">
-        <Layers class="h-4 w-4" />
-        Tech Stack
-      </a>
-    </div>
-
-    <!-- Stats -->
-    <div id="stats-row" role="list" aria-label="Key statistics" class="hero-enter hero-enter-5 mt-16 grid grid-cols-2 gap-6 border-t border-dark-border pt-10 md:grid-cols-4">
-      <div>
-        <div class="text-3xl font-bold text-accent-blue md:text-4xl" data-count-to="7" data-count-suffix="+">0+</div>
-        <div class="mt-1 text-sm text-text-muted">Años de experiencia.</div>
+        <!-- CTA Buttons -->
+        <div class="hero-enter hero-enter-4 flex flex-wrap gap-6 pt-4">
+          <a href="#projects" id="cta-primary" class="bg-accent-green text-black px-10 py-5 mono-label font-medium text-xs tracking-[0.2em] uppercase hover:invert transition-all sharp-border" style="box-shadow: 0 0 30px rgba(0, 255, 65, 0.3);">
+            Execute Project_Scan
+          </a>
+          <a href="#contact" id="cta-secondary" class="border border-accent-green/30 text-accent-green px-10 py-5 mono-label font-medium text-xs tracking-[0.2em] uppercase hover:bg-accent-green/10 transition-all sharp-border">
+            Read Docs.txt
+          </a>
+        </div>
       </div>
-      <div>
-        <div class="text-3xl font-bold text-accent-blue md:text-4xl" data-count-to="15" data-count-suffix="+">0+</div>
-        <div class="mt-1 text-sm text-text-muted">Proyectos entregados.</div>
-      </div>
-      <div>
-        <div class="text-3xl font-bold text-accent-blue md:text-4xl" data-count-to="99.9" data-count-suffix="%" data-count-decimals="1">0%</div>
-        <div class="mt-1 text-sm text-text-muted">Disponibilidad.</div>
-      </div>
-      <div>
-        <div class="text-3xl font-bold text-accent-blue md:text-4xl" data-count-to="1" data-count-prefix="#">0</div>
-        <div class="mt-1 text-sm text-text-muted">Satisfacción del cliente.</div>
+
+      <!-- Right: Node Visualization -->
+      <div class="hidden lg:flex lg:col-span-5 relative h-[600px] items-center justify-center">
+        <!-- Orbital Rings -->
+        <div class="absolute w-[400px] h-[400px] border border-accent-green/5 rounded-full animate-spin" style="animation-duration: 20s;"></div>
+        <div class="absolute w-[300px] h-[300px] border border-accent-green/10 rounded-full animate-spin" style="animation-duration: 15s; animation-direction: reverse;"></div>
+
+        <!-- Central Nucleus -->
+        <div class="relative z-20 w-40 h-40 flex items-center justify-center bg-dark-bg border border-accent-green/20 animate-pulse" style="animation-duration: 4s;">
+          <div class="absolute inset-0 bg-accent-green/5"></div>
+          <Settings class="h-12 w-12 text-accent-green" />
+          <div class="absolute -bottom-8 mono-label text-[10px] text-accent-green tracking-widest">CORE_ORCHESTRATOR</div>
+        </div>
+
+        <!-- Floating File: Agents.md -->
+        <div class="absolute top-10 right-0 group">
+          <div class="w-48 bg-surface-container/60 backdrop-blur-md border border-accent-green/20 p-4 transition-transform group-hover:-translate-y-2">
+            <div class="flex items-center gap-2 mb-3 border-b border-accent-green/20 pb-2">
+              <FileCode class="h-4 w-4 text-tertiary-fixed-dim" />
+              <span class="mono-label text-[10px] text-tertiary-fixed-dim">Agents.md</span>
+            </div>
+            <div class="space-y-2">
+              <div class="h-1 bg-tertiary-fixed-dim/10 overflow-hidden"><div class="h-full bg-tertiary-fixed-dim w-3/4"></div></div>
+              <div class="h-1 bg-tertiary-fixed-dim/10 overflow-hidden"><div class="h-full bg-tertiary-fixed-dim w-1/2"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Floating File: Skills.env -->
+        <div class="absolute bottom-10 left-0 group">
+          <div class="w-48 bg-surface-container/60 backdrop-blur-md border border-accent-green/20 p-4 transition-transform group-hover:translate-y-2">
+            <div class="flex items-center gap-2 mb-3 border-b border-accent-green/20 pb-2">
+              <Hexagon class="h-4 w-4 text-accent-green" />
+              <span class="mono-label text-[10px] text-accent-green">Skills.env</span>
+            </div>
+            <div class="mono-data text-[9px] text-text-secondary leading-tight">
+              DEPLOY_STATE: ACTIVE<br/>NODE_HASH: 0x82f...
+            </div>
+          </div>
+        </div>
+
+        <!-- Connection Lines SVG -->
+        <svg class="absolute inset-0 w-full h-full pointer-events-none opacity-40">
+          <line stroke="#00ff41" stroke-width="0.5" x1="50%" y1="50%" x2="80%" y2="15%" />
+          <line stroke="#00ff41" stroke-width="0.5" x1="50%" y1="50%" x2="20%" y2="85%" />
+          <circle cx="80%" cy="15%" r="2" fill="#00ff41" />
+          <circle cx="20%" cy="85%" r="2" fill="#00ff41" />
+        </svg>
       </div>
     </div>
   </div>
 </section>
+
+<script>
+  import { getTranslations, type Language } from '../i18n/translations';
+
+  const subtitleEl = document.querySelector('.hero-enter-3') as HTMLParagraphElement;
+  const ctaPrimary = document.getElementById('cta-primary') as HTMLAnchorElement;
+  const ctaSecondary = document.getElementById('cta-secondary') as HTMLAnchorElement;
+  
+  function updateHeroContent(lang: Language) {
+    const t = getTranslations(lang);
+    if (subtitleEl) {
+      subtitleEl.textContent = t.hero.subtitle;
+    }
+    if (ctaPrimary) {
+      ctaPrimary.textContent = t.hero.ctaPrimary;
+    }
+    if (ctaSecondary) {
+      ctaSecondary.textContent = t.hero.ctaSecondary;
+    }
+  }
+
+  window.addEventListener('languageChange', (e: Event) => {
+    const customEvent = e as CustomEvent<{ lang: Language }>;
+    updateHeroContent(customEvent.detail.lang);
+  });
+
+  // Set initial language
+  const currentLang = (localStorage.getItem('lang') as Language) || 'es';
+  updateHeroContent(currentLang);
+</script>
 
 <script>
   function animateCount(el: HTMLElement) {

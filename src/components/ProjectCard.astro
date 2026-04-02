@@ -1,0 +1,66 @@
+---
+interface Props {
+  title: string;
+  titleEn?: string;
+  filename: string;
+  description: string;
+  descriptionEn?: string;
+  imageSrc: string;
+  imageAlt: string;
+  stack: { icon: string; name: string }[];
+  status: string;
+  statusEn?: string;
+}
+
+const { title, titleEn, filename, description, descriptionEn, imageSrc, imageAlt, stack, status, statusEn } = Astro.props;
+---
+
+<div class="group flex flex-col bg-dark-bg sharp-border hover:shadow-[0_0_40px_-10px_rgba(0,255,65,0.1)] transition-all duration-500 overflow-hidden" data-title-es={title} data-title-en={titleEn || title} data-desc-es={description} data-desc-en={descriptionEn || description} data-status-es={status} data-status-en={statusEn || status}>
+  <!-- VS Code Style Tab Header -->
+  <div class="flex items-center justify-between px-4 py-3 bg-surface-container-high/40 border-b border-accent-green/10">
+    <div class="flex gap-2.5">
+      <span class="w-2.5 h-2.5 rounded-full border border-red-500/30"></span>
+      <span class="w-2.5 h-2.5 rounded-full border border-yellow-500/30"></span>
+      <span class="w-2.5 h-2.5 rounded-full border border-green-500/30"></span>
+    </div>
+    <span class="mono-label text-[9px] text-text-secondary tracking-[0.1em] uppercase">{filename}</span>
+  </div>
+
+  <!-- Image with Gradient Overlay -->
+  <div class="relative group-hover:scale-[1.02] transition-transform duration-700">
+    <img 
+      class="w-full aspect-[16/10] object-cover opacity-50 contrast-125" 
+      src={imageSrc}
+      alt={imageAlt}
+      loading="lazy"
+    />
+    <div class="absolute inset-0 bg-gradient-to-t from-dark-bg via-dark-bg/20 to-transparent"></div>
+  </div>
+
+  <!-- Content with Line Numbers -->
+  <div class="p-8 flex-1 space-y-6" style="background: linear-gradient(to right, rgba(0, 255, 65, 0.05) 40px, transparent 40px);">
+    <div class="flex gap-4">
+      <div class="mono-data text-[10px] text-text-muted/30 text-right w-6 leading-[2.2]">
+        01<br/>02<br/>03<br/>04
+      </div>
+      <div class="flex-1 space-y-6">
+        <h3 class="project-title text-2xl text-accent-green font-light translatable">{title}</h3>
+        <p class="project-description text-text-secondary text-sm leading-relaxed font-light translatable">{description}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- VS Code Style Status Bar -->
+  <div class="px-4 py-1.5 bg-accent-green/5 border-t border-accent-green/20 flex justify-between items-center mono-label text-[9px] tracking-widest text-accent-green">
+    <div class="flex items-center gap-4">
+      {stack.map(item => (
+        <span class="flex items-center gap-1">
+          <span class="text-[12px]">{item.icon}</span> {item.name}
+        </span>
+      ))}
+    </div>
+    <span class="flex items-center gap-1">
+      <span class="project-status">{status}</span> <span class="w-1 h-1 bg-accent-green rounded-full animate-pulse"></span>
+    </span>
+  </div>
+</div>

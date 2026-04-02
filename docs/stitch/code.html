@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Octavio Morales | Architect OS</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed": "#a3f69c",
+                    "surface-container-high": "#262a31",
+                    "background": "#0a0e14",
+                    "on-secondary-fixed": "#002204",
+                    "on-error": "#690005",
+                    "on-primary": "#003907",
+                    "primary-fixed": "#72ff70",
+                    "on-surface": "#dfe2eb",
+                    "on-surface-variant": "#b9ccb2",
+                    "surface-variant": "#31353c",
+                    "on-secondary-container": "#81d27c",
+                    "surface-tint": "#00e639",
+                    "tertiary-fixed": "#dae2ff",
+                    "tertiary-container": "#d2dcff",
+                    "surface-container-low": "#181c22",
+                    "inverse-primary": "#006e16",
+                    "secondary-fixed-dim": "#88d982",
+                    "surface-container": "#1c2026",
+                    "primary-fixed-dim": "#00e639",
+                    "tertiary": "#faf8ff",
+                    "on-primary-fixed-variant": "#00530e",
+                    "surface-container-lowest": "#0a0e14",
+                    "primary-container": "#00ff41",
+                    "primary": "#ebffe2",
+                    "outline": "#84967e",
+                    "surface-container-highest": "#31353c",
+                    "on-tertiary-container": "#0858d4",
+                    "on-background": "#dfe2eb",
+                    "secondary": "#88d982",
+                    "secondary-container": "#005b14",
+                    "on-secondary": "#003909",
+                    "surface-bright": "#353940",
+                    "inverse-on-surface": "#2d3137",
+                    "on-tertiary-fixed-variant": "#0040a1",
+                    "on-error-container": "#ffdad6",
+                    "on-primary-fixed": "#002203",
+                    "inverse-surface": "#dfe2eb",
+                    "on-secondary-fixed-variant": "#005312",
+                    "error": "#ffb4ab",
+                    "outline-variant": "rgba(0, 255, 65, 0.2)",
+                    "surface": "#0a0e14",
+                    "surface-dim": "#0a0e14",
+                    "on-primary-container": "#007117",
+                    "on-tertiary": "#002c72",
+                    "error-container": "#93000a",
+                    "tertiary-fixed-dim": "#b2c5ff",
+                    "on-tertiary-fixed": "#001847"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0px",
+                    "lg": "0px",
+                    "xl": "0px",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["JetBrains Mono"],
+                    "body": ["Inter"],
+                    "label": ["JetBrains Mono"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 20;
+        }
+        .cursor-terminal { cursor: crosshair; }
+        .dot-grid {
+            background-image: radial-gradient(circle, rgba(0, 255, 65, 0.15) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+        .hex-pattern-bg {
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 0 L93.3 25 L93.3 75 L50 100 L6.7 75 L6.7 25 Z' fill='none' stroke='%231a202c' stroke-width='0.5'/%3E%3C/svg%3E");
+            background-size: 100px 115px;
+        }
+        @keyframes pulse-green {
+            0%, 100% { opacity: 0.5; transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 255, 65, 0.4); }
+            50% { opacity: 1; transform: scale(1.05); box-shadow: 0 0 30px 10px rgba(0, 255, 65, 0.2); }
+        }
+        .animate-node-pulse {
+            animation: pulse-green 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        .blink-cursor {
+            animation: blink 1s step-end infinite;
+        }
+        @keyframes blink {
+            from, to { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        .code-line-bg {
+            background: linear-gradient(to right, rgba(0, 255, 65, 0.05) 40px, transparent 40px);
+        }
+        .font-mono-tech { font-family: 'JetBrains Mono', monospace; }
+        .sharp-border { border: 1px solid rgba(0, 255, 65, 0.2); }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden">
+<header class="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-primary-container/10 px-8 py-6">
+<div class="max-w-[1920px] mx-auto flex justify-between items-center">
+<div class="flex items-center gap-12">
+<span class="text-xl font-bold tracking-tighter text-primary-container font-mono-tech">OCTAVIO_MORALES v4.0</span>
+<nav class="hidden md:flex gap-10">
+<a class="text-primary-container border-b border-primary-container pb-1 font-mono-tech uppercase tracking-widest text-[10px]" href="#root">root</a>
+<a class="text-on-surface-variant/40 hover:text-primary-container transition-colors font-mono-tech uppercase tracking-widest text-[10px]" href="#projects">projects</a>
+<a class="text-on-surface-variant/40 hover:text-primary-container transition-colors font-mono-tech uppercase tracking-widest text-[10px]" href="#skills">skills</a>
+<a class="text-on-surface-variant/40 hover:text-primary-container transition-colors font-mono-tech uppercase tracking-widest text-[10px]" href="#contact">contact</a>
+</nav>
+</div>
+<div class="hidden lg:flex items-center gap-8 font-mono-tech text-[10px] uppercase tracking-[0.2em]">
+<div class="flex items-center gap-3">
+<span class="w-1.5 h-1.5 bg-primary-container animate-pulse"></span>
+<span class="text-primary-container">OS: ARCHITECT_MODULAR // LATENCY: 2MS</span>
+</div>
+<span class="text-on-surface-variant/30">MANAGUA_NODE: 12.1150° N, 86.2362° W</span>
+</div>
+</div>
+</header>
+<main class="relative">
+<div class="fixed inset-0 dot-grid pointer-events-none opacity-40 z-0"></div>
+<div class="fixed inset-0 hex-pattern-bg pointer-events-none opacity-20 z-0"></div>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center pt-32 pb-48 px-8 lg:px-24 z-10" id="root">
+<div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-24 items-center">
+<div class="lg:col-span-7 space-y-12">
+<div class="inline-flex items-center gap-4 py-2 px-4 bg-surface-container-high/30 border-l-2 border-primary-container">
+<span class="font-mono-tech text-primary-container text-[11px] tracking-widest">SYSTEM_PATH: /usr/architect/core_logic</span>
+</div>
+<h1 class="font-body text-6xl lg:text-8xl leading-[1] tracking-tight text-on-surface font-light">
+                    Architecting systems where <span class="text-primary-container italic">AI</span> is the gold standard of quality.
+                </h1>
+<p class="text-xl text-on-surface-variant max-w-2xl leading-relaxed font-light">
+                    Senior Software Engineer specializing in High-Performance .NET Architectures and AI Orchestration. Bridging legacy reliability with cognitive automation.
+                </p>
+<div class="flex flex-wrap gap-6 pt-4">
+<button class="bg-primary-container text-on-primary-container px-10 py-5 font-mono-tech font-medium text-xs tracking-[0.2em] uppercase hover:invert transition-all sharp-border">
+                        Execute Project_Scan
+                    </button>
+<button class="border border-primary-container/30 text-primary-container px-10 py-5 font-mono-tech font-medium text-xs tracking-[0.2em] uppercase hover:bg-primary-container/10 transition-all sharp-border">
+                        Read Docs.txt
+                    </button>
+</div>
+</div>
+<!-- Complex Node Visualization -->
+<div class="lg:col-span-5 relative h-[600px] flex items-center justify-center">
+<div class="absolute w-[400px] h-[400px] border border-primary-container/5 rounded-full animate-spin [animation-duration:20s]"></div>
+<div class="absolute w-[300px] h-[300px] border border-primary-container/10 rounded-full animate-spin [animation-duration:15s] [animation-direction:reverse]"></div>
+<!-- Central Nucleus -->
+<div class="relative z-20 w-40 h-40 flex items-center justify-center bg-background sharp-border animate-node-pulse">
+<div class="absolute inset-0 bg-primary-container/5"></div>
+<span class="material-symbols-outlined text-5xl text-primary-container">settings_input_component</span>
+<div class="absolute -bottom-8 font-mono-tech text-[10px] text-primary-container tracking-widest">CORE_ORCHESTRATOR</div>
+</div>
+<!-- Floating File Nodes -->
+<div class="absolute top-10 right-0 group">
+<div class="w-48 bg-surface-container/60 backdrop-blur-md sharp-border p-4 transition-transform group-hover:-translate-y-2">
+<div class="flex items-center gap-2 mb-3 border-b border-primary-container/20 pb-2">
+<span class="material-symbols-outlined text-sm text-tertiary-fixed-dim">description</span>
+<span class="font-mono-tech text-[10px] text-tertiary-fixed-dim">Agents.md</span>
+</div>
+<div class="space-y-2">
+<div class="h-1 bg-tertiary-fixed-dim/10 overflow-hidden"><div class="h-full bg-tertiary-fixed-dim w-3/4"></div></div>
+<div class="h-1 bg-tertiary-fixed-dim/10 overflow-hidden"><div class="h-full bg-tertiary-fixed-dim w-1/2"></div></div>
+</div>
+</div>
+</div>
+<div class="absolute bottom-10 left-0 group">
+<div class="w-48 bg-surface-container/60 backdrop-blur-md sharp-border p-4 transition-transform group-hover:translate-y-2">
+<div class="flex items-center gap-2 mb-3 border-b border-primary-container/20 pb-2">
+<span class="material-symbols-outlined text-sm text-primary-container">code_blocks</span>
+<span class="font-mono-tech text-[10px] text-primary-container">Skills.env</span>
+</div>
+<div class="font-mono-tech text-[9px] text-on-surface-variant leading-tight">
+                            DEPLOY_STATE: ACTIVE<br/>NODE_HASH: 0x82f...
+                        </div>
+</div>
+</div>
+<!-- Precise Connection Lines -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none opacity-40">
+<line stroke="#00ff41" stroke-width="0.5" x1="50%" x2="80%" y1="50%" y2="15%"></line>
+<line stroke="#00ff41" stroke-width="0.5" x1="50%" x2="20%" y1="50%" y2="85%"></line>
+<circle cx="80%" cy="15%" fill="#00ff41" r="2"></circle>
+<circle cx="20%" cy="85%" fill="#00ff41" r="2"></circle>
+</svg>
+</div>
+</div>
+</section>
+<!-- Project Terminals -->
+<section class="py-48 px-8 lg:px-24 bg-surface-container-lowest/30 z-10 relative" id="projects">
+<div class="max-w-7xl mx-auto space-y-24">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-8">
+<div class="space-y-4">
+<span class="font-mono-tech text-primary-container text-xs tracking-[0.4em]">MODULE_EXPLORER</span>
+<h2 class="font-body text-5xl text-on-surface tracking-tight uppercase">Project Terminals</h2>
+</div>
+<span class="font-mono-tech text-on-surface-variant/40 text-[10px] tracking-[0.2em]">TOTAL_ENTRIES: 03 // FILTERS: [PROD, ACTIVE]</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+<!-- Project 1 -->
+<div class="group flex flex-col bg-background sharp-border hover:shadow-[0_0_40px_-10px_rgba(0,255,65,0.1)] transition-all duration-500 overflow-hidden">
+<div class="flex items-center justify-between px-4 py-3 bg-surface-container-high/40 border-b border-primary-container/10">
+<div class="flex gap-2.5">
+<span class="w-2.5 h-2.5 rounded-full border border-red-500/30"></span>
+<span class="w-2.5 h-2.5 rounded-full border border-yellow-500/30"></span>
+<span class="w-2.5 h-2.5 rounded-full border border-green-500/30"></span>
+</div>
+<span class="font-mono-tech text-[9px] text-on-surface-variant tracking-[0.1em] uppercase">AINativeNav.cs</span>
+</div>
+<div class="relative group-hover:scale-[1.02] transition-transform duration-700">
+<img class="w-full aspect-[16/10] object-cover opacity-50 contrast-125" data-alt="Cyberpunk style UI screenshot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCy6v-UOVDm-bmHGS5Bd_FO413ZCR5DGXvmOT9wmKZy4z8qWcnepGu_wfSgCwYnENeMEYfrr3beEDQrqCOnwKI5lkMZmdPytMpyV7WXfsq2F5CMA2_mI74D9NtQPpRgoOL-wb5yHBXe21NmdM4VAMUa-brB_sk_u-LiXjzGjA3XQu0J8aElHcsN30bAQsKeNv98aBOheLHhD0W3Y1dBCXC5D7IgeNMhTdVI0T4ag2lEYV1CK1yeUMpv79txVQqD5ppetvfIUsCqdRVX"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent"></div>
+</div>
+<div class="p-8 flex-1 space-y-6 code-line-bg">
+<div class="flex gap-4">
+<div class="font-mono-tech text-[10px] text-on-surface-variant/30 text-right w-6 leading-[2.2]">
+                                01<br/>02<br/>03<br/>04
+                            </div>
+<div class="flex-1 space-y-6">
+<h3 class="font-body text-2xl text-primary-container font-light">AINativeNav</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed font-light">High-performance navigation engine powered by LLM orchestration for dynamic architectural routing.</p>
+</div>
+</div>
+</div>
+<!-- VS Code Style Status Bar -->
+<div class="px-4 py-1.5 bg-[#00ff41]/5 border-t border-primary-container/20 flex justify-between items-center font-mono-tech text-[9px] tracking-widest text-primary-container">
+<div class="flex items-center gap-4">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined !text-[12px]">terminal</span> .NET 8.0</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined !text-[12px]">neurology</span> SK</span>
+</div>
+<span class="flex items-center gap-1">RUNNING <span class="w-1 h-1 bg-primary-container rounded-full animate-pulse"></span></span>
+</div>
+</div>
+<!-- Project 2 -->
+<div class="group flex flex-col bg-background sharp-border hover:shadow-[0_0_40px_-10px_rgba(0,255,65,0.1)] transition-all duration-500 overflow-hidden">
+<div class="flex items-center justify-between px-4 py-3 bg-surface-container-high/40 border-b border-primary-container/10">
+<div class="flex gap-2.5">
+<span class="w-2.5 h-2.5 rounded-full border border-red-500/30"></span>
+<span class="w-2.5 h-2.5 rounded-full border border-yellow-500/30"></span>
+<span class="w-2.5 h-2.5 rounded-full border border-green-500/30"></span>
+</div>
+<span class="font-mono-tech text-[9px] text-on-surface-variant tracking-[0.1em] uppercase">Hospital_ME.k8s</span>
+</div>
+<div class="relative group-hover:scale-[1.02] transition-transform duration-700">
+<img class="w-full aspect-[16/10] object-cover opacity-50 contrast-125" data-alt="Technical architectural diagram" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA77fFMke1YV8Pr8A51GGhWEziFtvG0Sb3-IuhnOS4ZkzRQWM-Ovq0pJ_4OzsraQ84M4DrCMLHyhkEi_SrjP1bKYj_PDT1mL7QI-1Az_8zKwQPIRSXT73twUZ9KHjAHKjfdeaTQHTMmhUCsgDbw8D_J-YtoxhFnbfKQAYCoylzjBO6h6MOdYLHwqkMnKHrDvHxBkGGnFnKE9USuUpMxzyjKfKrytOXNJRBjNxLYvQ14n8zTDPUoDztz810sTOY-CWkX-KUxP0LyM5RM"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent"></div>
+</div>
+<div class="p-8 flex-1 space-y-6 code-line-bg">
+<div class="flex gap-4">
+<div class="font-mono-tech text-[10px] text-on-surface-variant/30 text-right w-6 leading-[2.2]">
+                                01<br/>02<br/>03<br/>04
+                            </div>
+<div class="flex-1 space-y-6">
+<h3 class="font-body text-2xl text-primary-container font-light">Hospital Monte España</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed font-light">Enterprise-grade healthcare management system built on microservices with high availability.</p>
+</div>
+</div>
+</div>
+<div class="px-4 py-1.5 bg-[#00ff41]/5 border-t border-primary-container/20 flex justify-between items-center font-mono-tech text-[9px] tracking-widest text-primary-container">
+<div class="flex items-center gap-4">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined !text-[12px]">javascript</span> REACT 19</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined !text-[12px]">cloud</span> K8S</span>
+</div>
+<span class="flex items-center gap-1">STABLE <span class="w-1 h-1 bg-primary-container rounded-full"></span></span>
+</div>
+</div>
+<!-- Project 3 -->
+<div class="group flex flex-col bg-background sharp-border hover:shadow-[0_0_40px_-10px_rgba(0,255,65,0.1)] transition-all duration-500 overflow-hidden">
+<div class="flex items-center justify-between px-4 py-3 bg-surface-container-high/40 border-b border-primary-container/10">
+<div class="flex gap-2.5">
+<span class="w-2.5 h-2.5 rounded-full border border-red-500/30"></span>
+<span class="w-2.5 h-2.5 rounded-full border border-yellow-500/30"></span>
+<span class="w-2.5 h-2.5 rounded-full border border-green-500/30"></span>
+</div>
+<span class="font-mono-tech text-[9px] text-on-surface-variant tracking-[0.1em] uppercase">SaaS_Contable.sh</span>
+</div>
+<div class="relative group-hover:scale-[1.02] transition-transform duration-700">
+<img class="w-full aspect-[16/10] object-cover opacity-50 contrast-125" data-alt="Financial dashboard" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUiY-Pj1iImMtd20W6rhYqUUN7KC4cpbE_GXk6X3OcPb56ZHHQFe0Bi-AE7HhMTS0XLp-zZ-nb66X8SsdrqogfyCdWpwzBZer4etguoBrERWjezrmBI_TNSIBE5qTwsnVefG9OJp3YqHAgyXiutbeyTWZ2DWkHyBIipmqEMg-K8EoPyVUs5qnvqCgBLeGM2vq4uxJwJLimTxvTJ6s8mDZ89S--S7SAbEz1wdz2DLClbWWg7z9IbXLUWOtCpXYW7HsckZvzrIDwpg26"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent"></div>
+</div>
+<div class="p-8 flex-1 space-y-6 code-line-bg">
+<div class="flex gap-4">
+<div class="font-mono-tech text-[10px] text-on-surface-variant/30 text-right w-6 leading-[2.2]">
+                                01<br/>02<br/>03<br/>04
+                            </div>
+<div class="flex-1 space-y-6">
+<h3 class="font-body text-2xl text-primary-container font-light">SaaS Contable</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed font-light">Cloud-native accounting suite for multi-tenant organizations with automated fiscal reporting.</p>
+</div>
+</div>
+</div>
+<div class="px-4 py-1.5 bg-[#00ff41]/5 border-t border-primary-container/20 flex justify-between items-center font-mono-tech text-[9px] tracking-widest text-primary-container">
+<div class="flex items-center gap-4">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined !text-[12px]">deployed_code</span> DOCKER</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined !text-[12px]">database</span> REDIS</span>
+</div>
+<span class="flex items-center gap-1">SCALING <span class="w-1 h-1 bg-primary-container rounded-full animate-bounce"></span></span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Skills Canvas: Dependency Graph -->
+<section class="py-48 px-8 lg:px-24 z-10 relative" id="skills">
+<div class="max-w-7xl mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-24 items-start">
+<div class="lg:col-span-4 space-y-12 sticky top-48">
+<div class="space-y-4">
+<span class="font-mono-tech text-primary-container text-xs tracking-[0.4em]">TECH_STACK_ANALYSIS</span>
+<h2 class="font-body text-5xl text-on-surface tracking-tight uppercase">Skills Canvas</h2>
+</div>
+<p class="text-on-surface-variant leading-relaxed font-light text-lg">
+                        My technical stack is visualized as a dependency graph. I prioritize high-performance backend logic connected to modern, clinical frontend experiences.
+                    </p>
+<div class="space-y-6 font-mono-tech text-[10px] uppercase tracking-widest text-primary-container/60">
+<div class="flex items-center gap-3">
+<span class="w-1 h-1 bg-primary-container"></span>
+<span>Architecture: Hexagonal / Onion</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="w-1 h-1 bg-primary-container"></span>
+<span>Design: Cyber-Brutalist / Modular</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="w-1 h-1 bg-primary-container"></span>
+<span>DevOps: CI/CD / IaC / Docker</span>
+</div>
+</div>
+</div>
+<div class="lg:col-span-8 bg-surface-container/20 sharp-border p-12 relative overflow-hidden min-h-[600px]">
+<!-- Dependency Graph Representation -->
+<div class="absolute inset-0 opacity-10 hex-pattern-bg"></div>
+<div class="relative grid grid-cols-1 md:grid-cols-2 gap-8 h-full z-10">
+<!-- Left Col -->
+<div class="flex flex-col gap-8">
+<div class="p-8 bg-background sharp-border group hover:border-primary-container/60 transition-colors">
+<div class="flex justify-between items-start mb-4">
+<span class="font-mono-tech text-primary-container text-[10px]">VER: 2.1.0</span>
+<span class="font-mono-tech text-on-surface-variant/30 text-[9px]">LTCY: 4ms</span>
+</div>
+<h4 class="font-mono-tech text-lg uppercase text-on-surface mb-2">AIDD</h4>
+<p class="font-mono-tech text-[10px] text-on-surface-variant uppercase tracking-tight">AI Driven Development // ORCHESTRATION</p>
+</div>
+<div class="p-8 bg-background sharp-border group hover:border-primary-container/60 transition-colors">
+<div class="flex justify-between items-start mb-4">
+<span class="font-mono-tech text-primary-container text-[10px]">NODE_AZ</span>
+<span class="font-mono-tech text-on-surface-variant/30 text-[9px]">UP: 99.9%</span>
+</div>
+<h4 class="font-mono-tech text-lg uppercase text-on-surface mb-2">Cloud Native</h4>
+<p class="font-mono-tech text-[10px] text-on-surface-variant uppercase tracking-tight">Azure / AWS / K8S // INFRA_CODE</p>
+</div>
+</div>
+<!-- Right Col -->
+<div class="flex flex-col gap-8">
+<div class="p-8 bg-background sharp-border group hover:border-primary-container/60 transition-colors">
+<div class="flex justify-between items-start mb-4">
+<span class="font-mono-tech text-primary-container text-[10px]">UI_CORE</span>
+<span class="font-mono-tech text-on-surface-variant/30 text-[9px]">TPS: 120</span>
+</div>
+<h4 class="font-mono-tech text-lg uppercase text-on-surface mb-2">Modern Web</h4>
+<p class="font-mono-tech text-[10px] text-on-surface-variant uppercase tracking-tight">React / Tailwind / TS // CLINICAL_UX</p>
+</div>
+<div class="p-8 bg-background sharp-border group hover:border-primary-container/60 transition-colors">
+<div class="flex justify-between items-start mb-4">
+<span class="font-mono-tech text-primary-container text-[10px]">MQ_01</span>
+<span class="font-mono-tech text-on-surface-variant/30 text-[9px]">ASYNC: OK</span>
+</div>
+<h4 class="font-mono-tech text-lg uppercase text-on-surface mb-2">Event-Driven</h4>
+<p class="font-mono-tech text-[10px] text-on-surface-variant uppercase tracking-tight">Kafka / RabbitMQ // SCALABLE_LOGIC</p>
+</div>
+</div>
+<!-- Center Absolute Node -->
+<div class="md:absolute md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 z-20 w-full md:w-64">
+<div class="p-10 bg-primary-container text-on-primary-container shadow-[0_0_50px_-5px_rgba(0,255,65,0.3)] text-center sharp-border">
+<h4 class="font-mono-tech text-xl uppercase font-bold leading-none mb-2">Enterprise<br/>Backend</h4>
+<p class="font-mono-tech text-[10px] font-bold tracking-[0.3em] uppercase opacity-60">CORE_CENTRAL</p>
+</div>
+</div>
+<!-- Connection Lines SVG -->
+<svg class="hidden md:block absolute inset-0 w-full h-full pointer-events-none">
+<path d="M 250,150 L 400,300" fill="none" stroke="rgba(0, 255, 65, 0.2)" stroke-width="1"></path>
+<path d="M 250,450 L 400,300" fill="none" stroke="rgba(0, 255, 65, 0.2)" stroke-width="1"></path>
+<path d="M 550,150 L 400,300" fill="none" stroke="rgba(0, 255, 65, 0.2)" stroke-width="1"></path>
+<path d="M 550,450 L 400,300" fill="none" stroke="rgba(0, 255, 65, 0.2)" stroke-width="1"></path>
+</svg>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer / Gemini CLI -->
+<footer class="bg-background border-t border-primary-container/10 px-8 py-24 z-20 relative" id="contact">
+<div class="max-w-7xl mx-auto space-y-16">
+<div class="bg-surface-container-lowest/50 backdrop-blur-md sharp-border p-8 md:p-12 font-mono-tech relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary-container/20 to-transparent"></div>
+<div class="flex items-center gap-3 text-primary-container mb-8">
+<span class="material-symbols-outlined">terminal</span>
+<span class="text-xs uppercase tracking-[0.3em] font-bold">GEMINI_CLI v2.4 // SYSTEM_BOOT_SEQUENCE</span>
+</div>
+<div class="space-y-6 text-sm">
+<div class="text-[11px] text-on-surface-variant/40 leading-relaxed uppercase">
+                    [0.0012] Loading architectural kernels... OK<br/>
+                    [0.0245] Initializing secure communication protocol v4.0... DONE<br/>
+                    [0.0567] Mapping contact endpoints... SUCCESS
+                </div>
+<div class="flex gap-4 pt-4">
+<span class="text-primary-container">$</span>
+<div class="flex items-center gap-1">
+<span class="text-on-surface">octavio --contact</span>
+<span class="w-2 h-5 bg-primary-container blink-cursor"></span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 pt-8">
+<a class="group p-6 bg-background sharp-border hover:border-primary-container transition-all" href="mailto:hello@octaviomorales.dev">
+<span class="text-[9px] text-on-surface-variant/50 mb-3 block uppercase tracking-widest">Protocol: Email</span>
+<span class="text-primary-container text-sm">hello@octaviomorales.dev</span>
+</a>
+<a class="group p-6 bg-background sharp-border hover:border-primary-container transition-all" href="#">
+<span class="text-[9px] text-on-surface-variant/50 mb-3 block uppercase tracking-widest">Endpoint: LinkedIn</span>
+<span class="text-primary-container text-sm">/in/octavio-morales</span>
+</a>
+<a class="group p-6 bg-background sharp-border hover:border-primary-container transition-all" href="#">
+<span class="text-[9px] text-on-surface-variant/50 mb-3 block uppercase tracking-widest">Source: GitHub</span>
+<span class="text-primary-container text-sm">/octavio-arch</span>
+</a>
+</div>
+</div>
+</div>
+<div class="flex flex-col md:flex-row justify-between items-center gap-8 border-t border-primary-container/5 pt-12">
+<div class="font-mono-tech text-[10px] text-on-surface-variant/30 tracking-[0.2em] uppercase">
+                octavio@morales ~ // build_2024.0.1
+            </div>
+<div class="flex gap-12">
+<a class="text-on-surface-variant/40 hover:text-primary-container font-mono-tech text-[10px] tracking-widest uppercase transition-colors" href="#">GitHub</a>
+<a class="text-on-surface-variant/40 hover:text-primary-container font-mono-tech text-[10px] tracking-widest uppercase transition-colors" href="#">LinkedIn</a>
+<a class="text-on-surface-variant/40 hover:text-primary-container font-mono-tech text-[10px] tracking-widest uppercase transition-colors" href="#">Manifesto</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

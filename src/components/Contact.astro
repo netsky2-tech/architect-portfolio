@@ -4,82 +4,42 @@ import { Send, Github, Linkedin, Mail } from '@lucide/astro';
 
 <section id="contact" aria-labelledby="contact-heading" class="py-20 md:py-28">
   <div class="mx-auto max-w-7xl px-6">
-    <div class="grid gap-12 md:grid-cols-2">
-      <!-- Left -->
-      <div data-reveal="left">
-        <div class="mb-3 inline-flex items-center gap-2 rounded-full border border-dark-border bg-dark-card px-4 py-1.5">
-          <span class="pulse-dot h-1.5 w-1.5 rounded-full bg-accent-blue"></span>
-          <span class="text-xs font-medium tracking-wider text-text-secondary uppercase">Get in Touch</span>
+    <div class="max-w-3xl">
+      <div data-reveal>
+        <div class="mb-3 inline-flex items-center gap-2 border border-dark-border bg-dark-card px-4 py-1.5">
+          <span class="pulse-dot h-1.5 w-1.5 bg-accent-green"></span>
+          <span class="mono-label text-text-secondary">Contáctame</span>
         </div>
-        <h2 id="contact-heading" class="mb-4 text-3xl font-bold tracking-tight md:text-4xl">
-          Ready to architect your next system?
+        <h2 id="contact-heading" class="mono-display mb-4 text-3xl font-bold tracking-tight md:text-4xl">
+          Construyamos Algo Juntos
         </h2>
-        <p class="max-w-md text-base leading-relaxed text-text-secondary">
-          I am available to explore a position for senior-level engineering roles and high-impact architecture consulting.
+        <p class="max-w-2xl text-base leading-relaxed text-text-secondary">
+          Disponible para roles de ingeniería senior y consultoría de arquitectura de alto impacto.
         </p>
-
-        <div class="mt-8 flex flex-wrap items-center gap-6 text-sm text-text-muted">
-          <a href="#" class="inline-flex items-center gap-2 transition-colors hover:text-text-primary">
-            <Github class="h-4 w-4" />
-            GitHub
-          </a>
-          <a href="#" class="inline-flex items-center gap-2 transition-colors hover:text-text-primary">
-            <Linkedin class="h-4 w-4" />
-            LinkedIn
-          </a>
-          <a href="mailto:hello@example.com" class="inline-flex items-center gap-2 transition-colors hover:text-text-primary">
-            <Mail class="h-4 w-4" />
-            Email
-          </a>
-        </div>
       </div>
 
-      <!-- Right - Form -->
-      <div data-reveal="right" class="rounded-2xl border border-dark-border bg-dark-card p-6 md:p-8">
-        <form class="space-y-5" aria-label="Contact form">
+      <div data-reveal class="mt-12 grid gap-6 sm:grid-cols-3">
+        <a href="mailto:octaviomr9810@gmail.com" class="card-hover ghost-border group flex flex-col items-start gap-3 p-6">
+          <Mail class="h-6 w-6 text-accent-green" />
           <div>
-            <label for="name" class="mb-1.5 block text-xs font-medium tracking-wider text-text-muted uppercase">Full Name</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              required
-              autocomplete="name"
-              placeholder="Tell me your name, or your company name"
-              class="w-full rounded-lg border border-dark-border bg-dark-bg px-4 py-3 text-sm text-text-primary placeholder-text-muted outline-none transition-colors focus:border-accent-blue"
-            />
+            <div class="mono-label mb-1 text-text-muted">--contact: EMAIL</div>
+            <div class="text-sm text-text-secondary group-hover:text-text-primary transition-colors">octaviomr9810@gmail.com</div>
           </div>
+        </a>
+        <a href="https://linkedin.com/in/octavio-morales-dev" target="_blank" rel="noopener noreferrer" class="card-hover ghost-border group flex flex-col items-start gap-3 p-6">
+          <Linkedin class="h-6 w-6 text-accent-blue" />
           <div>
-            <label for="email" class="mb-1.5 block text-xs font-medium tracking-wider text-text-muted uppercase">Email</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              required
-              autocomplete="email"
-              placeholder="your@email.com"
-              class="w-full rounded-lg border border-dark-border bg-dark-bg px-4 py-3 text-sm text-text-primary placeholder-text-muted outline-none transition-colors focus:border-accent-blue"
-            />
+            <div class="mono-label mb-1 text-text-muted">--contact: LINKEDIN</div>
+            <div class="text-sm text-text-secondary group-hover:text-text-primary transition-colors">octavio-morales-dev</div>
           </div>
+        </a>
+        <a href="https://github.com/netsky2-tech" target="_blank" rel="noopener noreferrer" class="card-hover ghost-border group flex flex-col items-start gap-3 p-6">
+          <Github class="h-6 w-6 text-accent-green" />
           <div>
-            <label for="message" class="mb-1.5 block text-xs font-medium tracking-wider text-text-muted uppercase">Message</label>
-            <textarea
-              id="message"
-              name="message"
-              rows="4"
-              required
-              placeholder="Describe your project or role..."
-              class="w-full resize-none rounded-lg border border-dark-border bg-dark-bg px-4 py-3 text-sm text-text-primary placeholder-text-muted outline-none transition-colors focus:border-accent-blue"
-            ></textarea>
+            <div class="mono-label mb-1 text-text-muted">--contact: GITHUB</div>
+            <div class="text-sm text-text-secondary group-hover:text-text-primary transition-colors">netsky2-tech</div>
           </div>
-          <button
-            type="submit"
-            class="btn-primary inline-flex w-full items-center justify-center gap-2 rounded-lg bg-accent-blue px-6 py-3 text-sm font-semibold text-white"
-          >
-            <Send class="h-4 w-4" />
-            Send Message
-          </button>
-        </form>
+        </a>
       </div>
     </div>
   </div>

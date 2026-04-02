@@ -1,0 +1,24 @@
+---
+interface Props {
+  path: string[];
+}
+
+const { path } = Astro.props;
+---
+
+<div class="terminal-breadcrumb mono-label text-text-muted" aria-label="Current location">
+  <span>root</span>
+  {path.map((segment, index) => (
+    <>
+      <span class="mx-2">/</span>
+      <span class={index === path.length - 1 ? 'text-accent-green' : ''}>{segment}</span>
+    </>
+  ))}
+</div>
+
+<style>
+  .terminal-breadcrumb {
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+  }
+</style>

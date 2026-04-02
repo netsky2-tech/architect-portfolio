@@ -1,0 +1,73 @@
+---
+// Terminal-style language toggle: [ES] / [EN]
+---
+
+<div class="language-toggle mono-label">
+  <button
+    id="lang-es"
+    class="lang-btn active"
+    data-lang="es"
+    aria-label="Switch to Spanish"
+  >
+    [ES]
+  </button>
+  <span class="text-text-muted">/</span>
+  <button
+    id="lang-en"
+    class="lang-btn"
+    data-lang="en"
+    aria-label="Switch to English"
+  >
+    [EN]
+  </button>
+</div>
+
+<style>
+  .language-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .lang-btn {
+    background: none;
+    border: none;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    transition: color 0.3s ease;
+    padding: 0;
+  }
+
+  .lang-btn:hover {
+    color: var(--color-text-secondary);
+  }
+
+  .lang-btn.active {
+    color: var(--color-primary);
+  }
+</style>
+
+<script>
+  const langEs = document.getElementById('lang-es') as HTMLButtonElement;
+  const langEn = document.getElementById('lang-en') as HTMLButtonElement;
+
+  function getCurrentLang(): 'es' | 'en' {
+    return (localStorage.getItem('lang') as 'es' | 'en') || 'es';
+  }
+
+  function setLanguage(lang: 'es' | 'en') {
+    localStorage.setItem('lang', lang);
+    document.documentElement.lang = lang;
+    
+    langEs.classList.toggle('active', lang === 'es');
+    langEn.classList.toggle('active', lang === 'en');
+    
+    window.dispatchEvent(new CustomEvent('languageChange', { detail: { lang } }));
+  }
+
+  langEs?.addEventListener('click', () => setLanguage('es'));
+  langEn?.addEventListener('click', () => setLanguage('en'));
+
+  const currentLang = getCurrentLang();
+  setLanguage(currentLang);
+</script>

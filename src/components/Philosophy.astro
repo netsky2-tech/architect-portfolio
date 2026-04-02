@@ -11,29 +11,27 @@ import { Bot, ShieldCheck, Database } from "@lucide/astro";
     <!-- Section Header -->
     <div data-reveal class="mb-6">
       <div
-        class="mb-3 inline-flex items-center gap-2 rounded-full border border-dark-border bg-dark-card px-4 py-1.5"
+        class="mb-3 inline-flex items-center gap-2 border border-dark-border bg-dark-card px-4 py-1.5"
       >
-        <span class="pulse-dot h-1.5 w-1.5 rounded-full bg-accent-green"></span>
+        <span class="pulse-dot h-1.5 w-1.5 bg-accent-green"></span>
         <span
-          class="text-xs font-medium tracking-wider text-text-secondary uppercase"
-          >Future Proof</span
+          class="mono-label text-text-secondary"
+          >Principios</span
         >
       </div>
       <h2
         id="philosophy-heading"
-        class="text-3xl font-bold tracking-tight md:text-4xl"
+        class="mono-display text-3xl font-bold tracking-tight md:text-4xl"
       >
-        How I build in 2026
+        Filosofía de Ingeniería
       </h2>
     </div>
 
     <p
       data-reveal
-      class="mb-12 max-w-3xl text-base leading-relaxed text-text-secondary md:text-lg"
+      class="mb-12 max-w-3xl text-base leading-relaxed text-text-secondary font-light"
     >
-      The era of manual coding is shifting to agent orchestration. My workflow
-      focuses on leveraging AI architectures to increase velocity by 10x without
-      compromising quality or systems integrity.
+      Ingeniero de software con 7+ años especializando en la convergencia de arquitecturas robustas (.NET 8 / Laravel 12) e IA Generativa. Mi metodología de Orquestación de Contexto Modular mediante archivos de definición (Agents.md / Skills.md) permite que modelos de IA actúen con precisión quirúrgica, reduciendo deuda técnica y acelerando time-to-market 40%.
     </p>
 
     <!-- Philosophy Items -->
@@ -41,10 +39,11 @@ import { Bot, ShieldCheck, Database } from "@lucide/astro";
       <!-- Agent Orchestration -->
       <div
         class="group card-hover rounded-2xl border border-dark-border bg-dark-card p-6 hover:border-accent-green/30 md:p-8"
+        data-philosophy="ai"
       >
         <div class="flex items-start gap-5">
           <div
-            class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-accent-green/10"
+            class="flex h-12 w-12 shrink-0 items-center justify-center bg-accent-green/10"
           >
             <Bot
               aria-hidden="true"
@@ -52,14 +51,11 @@ import { Bot, ShieldCheck, Database } from "@lucide/astro";
             />
           </div>
           <div>
-            <h3 class="mb-2 text-lg font-bold text-text-primary">
-              Orquestación de Contexto Modular
+            <h3 class="mb-2 text-lg font-bold text-text-primary philosophy-title">
+              AI-Driven SDLC Optimization
             </h3>
-            <p class="text-sm leading-relaxed text-text-secondary">
-              Diseñé e implementé una metodología de Orquestación de Contexto
-              Modular mediante archivos de definición (Agents.md / Skills.md),
-              logrando que modelos de IA actúen con precisión quirúrgica según
-              el dominio técnico (React, .NET, Arquitectura).
+            <p class="text-sm leading-relaxed text-text-secondary philosophy-desc">
+              Metodología de Orquestación de Contexto Modular mediante archivos de definición (Agents.md / Skills.md), logrando que modelos de IA actúen con precisión quirúrgica según el dominio técnico. Reducción del 40% en tiempo de desarrollo estandarizando generación de código y asegurando coherencia arquitectónica.
             </p>
           </div>
         </div>
@@ -68,10 +64,11 @@ import { Bot, ShieldCheck, Database } from "@lucide/astro";
       <!-- Automated Governance -->
       <div
         class="group card-hover rounded-2xl border border-dark-border bg-dark-card p-6 hover:border-accent-blue/30 md:p-8"
+        data-philosophy="arch"
       >
         <div class="flex items-start gap-5">
           <div
-            class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-accent-blue/10"
+            class="flex h-12 w-12 shrink-0 items-center justify-center bg-accent-blue/10"
           >
             <ShieldCheck
               aria-hidden="true"
@@ -79,13 +76,11 @@ import { Bot, ShieldCheck, Database } from "@lucide/astro";
             />
           </div>
           <div>
-            <h3 class="mb-2 text-lg font-bold text-text-primary">
-              Gobernanza Automatizada
+            <h3 class="mb-2 text-lg font-bold text-text-primary philosophy-title">
+              Enterprise Architecture
             </h3>
-            <p class="text-sm leading-relaxed text-text-secondary">
-              Implementing AI-driven CI/CD gates that analyze architectural
-              drift and security vulnerabilities in real time before code ever
-              hits the staging environment.
+            <p class="text-sm leading-relaxed text-text-secondary philosophy-desc">
+              Especialización en Domain-Driven Design (DDD), Arquitectura Hexagonal y SOLID. Implementación de infraestructuras escalables con Docker/Kubernetes en AWS (EC2, S3, RDS), gestionando equipos bajo estándares de Clean Code y GitFlow.
             </p>
           </div>
         </div>
@@ -93,3 +88,64 @@ import { Bot, ShieldCheck, Database } from "@lucide/astro";
     </div>
   </div>
 </section>
+
+<script>
+  import { getTranslations, type Language } from '../i18n/translations';
+
+  const headingEl = document.getElementById('philosophy-heading') as HTMLHeadingElement;
+  const descriptionEl = document.querySelector('#philosophy p') as HTMLParagraphElement;
+  
+  const philosophyItems = {
+    ai: {
+      es: {
+        title: 'AI-Driven SDLC Optimization',
+        desc: 'Metodología de Orquestación de Contexto Modular mediante archivos de definición (Agents.md / Skills.md), logrando que modelos de IA actúen con precisión quirúrgica según el dominio técnico. Reducción del 40% en tiempo de desarrollo estandarizando generación de código y asegurando coherencia arquitectónica.'
+      },
+      en: {
+        title: 'AI-Driven SDLC Optimization',
+        desc: 'Modular Context Orchestration methodology through definition files (Agents.md / Skills.md), enabling AI models to act with surgical precision according to technical domain. 40% reduction in development time by standardizing code generation and ensuring architectural coherence.'
+      }
+    },
+    arch: {
+      es: {
+        title: 'Arquitectura Empresarial',
+        desc: 'Especialización en Domain-Driven Design (DDD), Arquitectura Hexagonal y SOLID. Implementación de infraestructuras escalables con Docker/Kubernetes en AWS (EC2, S3, RDS), gestionando equipos bajo estándares de Clean Code y GitFlow.'
+      },
+      en: {
+        title: 'Enterprise Architecture',
+        desc: 'Specialization in Domain-Driven Design (DDD), Hexagonal Architecture and SOLID. Implementation of scalable infrastructures with Docker/Kubernetes on AWS (EC2, S3, RDS), managing teams under Clean Code and GitFlow standards.'
+      }
+    }
+  };
+  
+  function updatePhilosophyContent(lang: Language) {
+    const t = getTranslations(lang);
+    if (headingEl) {
+      headingEl.textContent = t.philosophy.heading;
+    }
+    if (descriptionEl) {
+      descriptionEl.textContent = lang === 'es'
+        ? 'Ingeniero de software con 7+ años especializando en la convergencia de arquitecturas robustas (.NET 8 / Laravel 12) e IA Generativa. Mi metodología de Orquestación de Contexto Modular mediante archivos de definición (Agents.md / Skills.md) permite que modelos de IA actúen con precisión quirúrgica, reduciendo deuda técnica y acelerando time-to-market 40%.'
+        : 'Software engineer with 7+ years specializing in the convergence of robust architectures (.NET 8 / Laravel 12) and Generative AI. My Modular Context Orchestration methodology through definition files (Agents.md / Skills.md) allows AI models to act with surgical precision, reducing technical debt and accelerating time-to-market by 40%.';
+    }
+
+    // Update philosophy items
+    Object.keys(philosophyItems).forEach(itemKey => {
+      const item = document.querySelector(`[data-philosophy="${itemKey}"]`);
+      if (item) {
+        const titleEl = item.querySelector('.philosophy-title');
+        const descEl = item.querySelector('.philosophy-desc');
+        if (titleEl) titleEl.textContent = philosophyItems[itemKey][lang].title;
+        if (descEl) descEl.textContent = philosophyItems[itemKey][lang].desc;
+      }
+    });
+  }
+
+  window.addEventListener('languageChange', (e: Event) => {
+    const customEvent = e as CustomEvent<{ lang: Language }>;
+    updatePhilosophyContent(customEvent.detail.lang);
+  });
+
+  const currentLang = (localStorage.getItem('lang') as Language) || 'es';
+  updatePhilosophyContent(currentLang);
+</script>
